@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda 2º DAW</title>
+    <link rel="stylesheet" href="Agenda.css">
+    <link rel="icon" href="imagenes/agendaIconoPágina.png" type="image/x-icon">
+    <script>
+        // Asignamos variables para los nombres completos de las asignaturas y sus profesores
+        const asignaturas = {
+            diseno: {
+                nombre: "Diseño de Interfaces Web",
+                profesor: "Carmen Armijo"
+            },
+            despliegue: {
+                nombre: "Despliegue de Aplicaciones Web",
+                profesor: "Leticia Riaza"
+            },
+            cliente: {
+                nombre: "Desarrollo Web en Entorno Cliente",
+                profesor: "Miguel Ángel Cruzado"
+            },
+            servidor: {
+                nombre: "Desarrollo Web en Entorno Servidor",
+                profesor: "Alberto López"
+            },
+            empresa: {
+                nombre: "Empresa e Iniciativa Emprendedora",
+                profesor: "Pilar Álvarez"
+            },
+            ingles: {
+                nombre: "Inglés Técnico",
+                profesor: "Elena Menchero"
+            }
+        };
+
+        // Función para cambiar el texto y color al pasar el ratón
+        function cambiarTextoYColor(celda, nombreAsignatura, colorOscuro) {
+            const nombreOriginal = celda.dataset.nombreOriginal; // Guardamos el nombre original en data attribute
+
+            // Guardamos el nombre completo y profesor en una variable
+            const nombreCompleto = asignaturas[nombreAsignatura].nombre;
+            const profesor = asignaturas[nombreAsignatura].profesor;
+
+            // Al pasar el ratón
+            celda.addEventListener('mouseenter', () => {
+                celda.innerHTML = `${nombreCompleto}<br><a href="#profesores" class="profes"><small>${profesor}</small></a>`; // Cambia al nombre completo y muestra el nombre del profesor
+                celda.style.backgroundColor = colorOscuro; // Cambia al color más oscuro
+            });
+
+            // Al quitar el ratón
+            celda.addEventListener('mouseleave', () => {
+                celda.innerHTML = `${nombreOriginal}`; // Vuelve al nombre original
+                celda.style.backgroundColor = ''; // Vuelve al color original
+            });
+        }
+
+        // Esperamos a que el DOM cargue antes de ejecutar las funciones
+        window.onload = function () {
+
+            // Cambiar texto y color de las celdas de asignaturas
+            const celdasDiseno = document.querySelectorAll('.diseno');
+            celdasDiseno.forEach(celda => cambiarTextoYColor(celda, 'diseno', '#2a75a0'));
+
+            const celdasDespliegue = document.querySelectorAll('.despliegue');
+            celdasDespliegue.forEach(celda => cambiarTextoYColor(celda, 'despliegue', '#106910'));
+
+            const celdasCliente = document.querySelectorAll('.cliente');
+            celdasCliente.forEach(celda => cambiarTextoYColor(celda, 'cliente', '#56178e'));
+
+            const celdasServidor = document.querySelectorAll('.servidor');
+            celdasServidor.forEach(celda => cambiarTextoYColor(celda, 'servidor', '#864403'));
+
+            const celdasEmpresa = document.querySelectorAll('.empresa');
+            celdasEmpresa.forEach(celda => cambiarTextoYColor(celda, 'empresa', '#766512'));
+
+            const celdasIngles = document.querySelectorAll('.ingles');
+            celdasIngles.forEach(celda => cambiarTextoYColor(celda, 'ingles', '#912d71'));
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Agenda</div>
+            <ul>
+                <li>
+                    <a href="#horario"><img class="imgNav" src="imagenes/horario.png"
+                            alt="Imagen de horario">Horario</a>
+                </li>
+                <li>
+                    <a href="https://www.iestetuan.es/varios/2024calendarioescolar.pdf" target="_blank"><img
+                            class="imgNav" src="imagenes/calendario.png" alt="Imagen de calendario">Calendario</a>
+                </li>
+                <li>
+                    <a href="#profesores"><img class="imgNav" src="imagenes/profesor.png"
+                            alt="Imagen de profesor">Profesores</a>
+                </li>
+                <li>
+                    <a href="Perfil.html"><img class="imgNav" src="imagenes/usuario.png"
+                            alt="Imagen de perfil">Perfil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="div_antestabla">
+        <div class="tabla_container">
+            <table id="horario">
+                <thead>
+                    <tr>
+                        <th>Horario</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="hora">8:30 - 9:25</td>
+                        <td class="diseno" rowspan="2" data-nombre-original="DISEÑO">DISEÑO</td>
+                        <td class="despliegue" data-nombre-original="DESPLIEGUE">DESPLIEGUE</td>
+                        <td class="cliente" rowspan="2" data-nombre-original="CLIENTE">CLIENTE</td>
+                        <td class="diseno" rowspan="2" data-nombre-original="DISEÑO">DISEÑO</td>
+                        <td class="servidor" rowspan="2" data-nombre-original="SERVIDOR">SERVIDOR</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">9:30 - 10:20</td>
+                        <td class="empresa" rowspan="2" data-nombre-original="EMPRESA">EMPRESA</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">10:25 - 11:15</td>
+                        <td class="servidor" data-nombre-original="SERVIDOR">SERVIDOR</td>
+                        <td class="diseno" data-nombre-original="DISEÑO">DISEÑO</td>
+                        <td class="despliegue" data-nombre-original="DESPLIEGUE">DESPLIEGUE</td>
+                        <td class="cliente" data-nombre-original="CLIENTE">CLIENTE</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">11:15 - 11:45</td>
+                        <td colspan="5" style="font-size: 30px;">
+                            <div class="div_Recreo">
+                                <p>R</p>
+                                <p>E</p>
+                                <p>C</p>
+                                <p>R</p>
+                                <p>E</p>
+                                <p>O</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hora">11:45 - 12:30</td>
+                        <td class="servidor" data-nombre-original="SERVIDOR">SERVIDOR</td>
+                        <td class="ingles" data-nombre-original="INGLÉS">INGLÉS</td>
+                        <td class="diseno" data-nombre-original="DISEÑO">DISEÑO</td>
+                        <td class="despliegue" data-nombre-original="DESPLIEGUE">DESPLIEGUE</td>
+                        <td class="cliente" data-nombre-original="CLIENTE">CLIENTE</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">12:35 - 13:25</td>
+                        <td class="cliente" rowspan="2" data-nombre-original="CLIENTE">CLIENTE</td>
+                        <td class="servidor" rowspan="2" data-nombre-original="SERVIDOR">SERVIDOR</td>
+                        <td class="servidor" rowspan="2" data-nombre-original="SERVIDOR">SERVIDOR</td>
+                        <td class="empresa" data-nombre-original="EMPRESA">EMPRESA</td>
+                        <td class="despliegue" rowspan="2" data-nombre-original="DESPLIEGUE">DESPLIEGUE</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">13:30 - 14:20</td>
+                        <td class="ingles" data-nombre-original="INGLÉS">INGLÉS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div id="profesores" class="diseñoProfesores">
+        <div class="diseñoProfesCarmen">
+            <h2 class="tituloProfe">María del Carmen Armijo Torres</h2>
+            <p class="pProfesAsignatura">Diseño de Interfaces Web</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo" href="mailto:mcarmijo@educa.madrid.org">mcarmijo@educa.madrid.org</a></p>
+            </div>
+        </div>
+        <div class="diseñoProfesLeticia">
+            <h2 class="tituloProfe">Leticia Riaza Moreno</h2>
+            <p class="pProfesAsignatura">Despliegue de Aplicaciones Web</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo"
+                        href="mailto:leticia.riazamoreno@educa.madrid.org">leticia.riazamoreno@educa.madrid.org</a></p>
+            </div>
+        </div>
+        <div class="diseñoProfesAlberto">
+            <h2 class="tituloProfe">José Alberto López Ballesteros</h2>
+            <p class="pProfesAsignatura">Desarrollo Web en Entorno Servidor</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo" href="mailto:alberto.lopez@educa.madrid.org">alberto.lopez@educa.madrid.org</a>
+                </p>
+            </div>
+        </div>
+        <div class="diseñoProfesMiguel">
+            <h2 class="tituloProfe">Miguel Ángel Cruzado Vivas</h2>
+            <p class="pProfesAsignatura">Desarrollo Web en Entorno Cliente</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo" href="mailto:macruzado@educa.madrid.org">macruzado@educa.madrid.org</a></p>
+            </div>
+        </div>
+        <div class="diseñoProfesPilar">
+            <h2 class="tituloProfe">María Pilar Álvarez Sousa</h2>
+            <p class="pProfesAsignatura">Empresa Iniciativa y Emprendedora</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo" href="mailto:pilar.alvarez@educa.madrid.org">pilar.alvarez@educa.madrid.org</a>
+                </p>
+            </div>
+        </div>
+        <div class="diseñoProfesElena">
+            <h2 class="tituloProfe">Elena Menchero Garrido</h2>
+            <p class="pProfesAsignatura">Inglés Técnico</p>
+            <div class="divCorreo">
+                <img src="imagenes/correo.png">
+                <p><a class="acorreo" href="mailto:elena.menchero@educa.madrid.org">elena.menchero@educa.madrid.org</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+</body>
+
+<footer class="footer">
+    <div class="div_footer_final">
+        <p class="p_footer_final">© 2024 - Daniel Esteban</p>
+    </div>
+</footer>
+
+</html>

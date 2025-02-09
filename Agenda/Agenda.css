@@ -1,0 +1,375 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(241, 230, 252, 0.499);
+}
+
+nav {
+    background-color: #545dd5;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1; /*Permite que el logo ocupe espacio flexible*/
+    padding-left: 2%;
+    transition: text-shadow 0.3s ease;
+}
+
+.logo:hover {
+    text-shadow: 0px 0px 8px rgb(255, 255, 255);
+}
+
+.imgNav {
+    width: 23px;
+    height: 23px;
+    padding-left: 10px;
+    transition: opacity 0.4s ease;
+}
+
+.imgNav:hover {
+    opacity: 60%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+ul li {
+    position: relative;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: text-shadow 0.4s ease;
+}
+
+ul img {
+    padding-right: 10px;
+}
+
+ul li a:hover {
+    text-shadow: 0px 0px 8px rgb(255, 255, 255);
+}
+
+ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #0a122a;
+    top: 40px;
+    left: 0;
+    list-style: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+ul li ul li {
+    margin: 5px 0;
+}
+
+/* HORARIO */
+
+.div_antestabla {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px; /* Espacio desde el top */
+    box-sizing: border-box;
+}
+
+table {
+    margin-top: 100px;
+    border-collapse: collapse;
+    border-radius: 2px;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 20px 10px;
+}
+
+.div_Recreo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+
+.hora {
+    background-color: whitesmoke;
+    color: #545dd5;
+    width: 120px;
+}
+
+th {
+    background-color: whitesmoke;
+    color: #545dd5;
+    padding: 15px;
+}
+
+td:not(.hora):not([colspan]) {
+    height: 80px;
+}
+
+.diseno {
+    background-color: #7cf2ffcf;
+}
+
+.despliegue {
+    background-color: #ccffcc;
+}
+
+.cliente {
+    background-color: #ccccff;
+}
+
+.servidor {
+    background-color: #ffcc99;
+}
+
+.empresa {
+    background-color: #ffff99;
+}
+
+.ingles {
+    background-color: #ff99cc;
+}
+
+td.diseno:hover {
+    color: white;
+}
+
+td.despliegue:hover {
+    color: white;
+}
+
+td.cliente:hover {
+    color: white;
+}
+
+td.servidor:hover {
+    color: white;
+}
+
+td.empresa:hover {
+    background-color: #766512;
+    color: white;
+}
+
+td.ingles:hover {
+    background-color: #912d71;
+    color: white;
+}
+
+td {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*---------------------------------------------------------*/
+
+.profes {
+    text-decoration: none;
+    color: white;
+}
+
+.profes:hover {
+    text-decoration: underline;
+}
+
+.diseñoProfesores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.diseñoProfesCarmen {
+    background-color: #3177f8;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diseñoProfesLeticia {
+    background-color: #37a340;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diseñoProfesAlberto {
+    background-color: #895535;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diseñoProfesMiguel {
+    background-color: #643bd5;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diseñoProfesPilar {
+    background-color: #908b00;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diseñoProfesElena {
+    background-color: #cc40c9;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tituloProfe {
+    padding-left: 20px;
+}
+
+.pProfesAsignatura {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    opacity: 75%;
+}
+
+.divCorreo {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.divCorreo img {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+.divCorreo img:hover {
+    transform: scale(1.2);
+}
+
+.acorreo {
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+}
+
+.acorreo:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.div_footer_final {
+    background-color: #545dd5;
+    width: 100%;
+    font-size: 15px;
+    right: 0;
+    left: 0;
+}
+
+.p_footer_final {
+    text-align: center;
+    color: rgb(243, 240, 236);
+    padding: 20px;
+    margin: 0;
+    text-shadow: 0px 0px 8px rgb(255, 255, 255);
+}
+
+/* ------------------------------------------------- */
+
+@media (max-width: 800px) {
+    th, td {
+        font-size: 16px;
+        padding: 10px 5px;
+    }
+
+}
+
+@media (max-width: 630px) {
+    th, td {
+        font-size: 12px;
+        padding: 8px 3px;
+    }
+}
+
+@media (max-width: 830px) {
+    ul li img {
+        display: none;
+    }
+
+    ul li a {
+        margin-right: -10px;
+    }
+}
+
+@media (max-width: 630px) {
+    ul li a {
+        font-size: 0;
+    }  
+
+    ul li img {
+        display: flex;
+        margin-right: -5px;
+    }  
+}

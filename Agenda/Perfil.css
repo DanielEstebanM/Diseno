@@ -1,0 +1,103 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(81, 98, 211, 0.505);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.perfil-container {
+    background-color: white;
+    width: 410px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+}
+
+.perfil-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px rgba(81, 98, 211, 0.7);
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.perfil-img:hover { 
+    box-shadow: 0px 0px 20px rgba(81, 98, 211, 0.9);
+    transform: scale(1.03);
+}
+
+h1 {
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+.perfil-info {
+    font-size: 18px;
+    color: black;
+    line-height: 1.6;
+    text-align: start;
+    background-color: rgb(246, 246, 246);
+    padding-left: 17px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 10px;
+}
+
+.alinearInfo {
+    display: flex;
+}
+
+.pDato {
+    font-weight: bold;
+}
+
+.pInfo {
+    padding-left: 10px;
+}
+
+.perfil-info a {
+    text-decoration: none;
+    color: #545dd5;
+}
+
+.perfil-info a:hover {
+    text-decoration: underline;
+}
+
+.img-atras {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.img-atras:hover {
+    transform: scale(1.2);
+}
+
+.imgRedesSociales {
+    padding-top: 22px;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.imgRedesSociales:hover {
+    transform: scale(1.1);
+}
+
+.redesSociales {
+    display: flex;
+    justify-content: space-evenly;
+}
