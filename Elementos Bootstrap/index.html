@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementos Bootstrap</title>
+  <link rel="stylesheet" href="css/Bootstrap.css">
+  <link rel="shortcut icon" href="Imágenes/logoPagina2.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body data-bs-theme="light" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
+  <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top">
+    <div class="container-fluid">
+      <button class="toggle-btn" type="button">
+        <img class="imgLogo" src="Imágenes/LogoDaniel.png" alt="Imagen logo">
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.w3schools.com/bootstrap5/index.php">Bootstrap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" style="cursor: not-allowed;">Working...</a>
+          </li>
+        </ul>
+        <button onclick="cambiarTema()" class="btn btn-light ms-auto"
+          style="border-radius: 70px; font-size: 13px; border: 1px; opacity: 0.8; margin-right: 50px;">
+          <i id="dl-icon" class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const temaOscuro = () => {
+      document.querySelector("body").setAttribute("data-bs-theme", "dark");
+      document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+
+      const textosCarousel = document.getElementsByName("texto");
+      for (let texto of textosCarousel) {
+        texto.style.color = "#ffffff99";
+      }
+    };
+
+    const temaClaro = () => {
+      document.querySelector("body").setAttribute("data-bs-theme", "light");
+      document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+
+      const textosCarousel = document.getElementsByClassName("carousel-caption p");
+      for (let texto of textosCarousel) {
+        texto.style.color = "#ffffff99";
+      }
+    };
+
+    const cambiarTema = () => {
+      document.querySelector("body").getAttribute("data-bs-theme") === "light"
+        ? temaOscuro()
+        : temaClaro();
+    };
+
+    //Sidebar
+    document.addEventListener("DOMContentLoaded", () => {
+      const sidebar = document.getElementById("sidebar");
+      const toggleBtn = document.querySelector(".toggle-btn");
+
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("expand");
+      });
+    });
+
+    //Tooltip
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+
+  </script>
+
+  <div class="wrapper">
+    <aside id="sidebar" class="bg-dark">
+      <ul class="sidebar-nav">
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Tables">
+          <a href="#tablas" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoTabla.png" alt="">
+            </i>
+            <span>BS5 Tables</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Dropdown">
+          <a href="#dropdowns" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoDropdown.png" alt="">
+            </i>
+            <span>BS5 Dropdowns</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Forms">
+          <a href="#forms" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoForm.png" alt="">
+            </i>
+            <span>BS5 Forms</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Flex">
+          <a href="#flex" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoFlex.png" alt="">
+            </i>
+            <span>BS5 Flex</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Navs">
+          <a href="#navs" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoNavs.png" alt="">
+            </i>
+            <span>BS5 Navs</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Input Groups">
+          <a href="#input-groups" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoInputGroups.png" alt="">
+            </i>
+            <span>BS5 Input Groups</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Badges">
+          <a href="#badges" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoBadges.png" alt="">
+            </i>
+            <span>BS5 Badges</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Buttons">
+          <a href="#buttons" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoButtons.png" alt="">
+            </i>
+            <span>BS5 Buttons</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Select Menus">
+          <a href="#select-menus" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoSelectMenus.png" alt="">
+            </i>
+            <span>BS5 Select Menus</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Tooltip">
+          <a href="#tooltip" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoTooltip.png" alt="">
+            </i>
+            <span>BS5 Tooltip</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Carousel">
+          <a href="#carousel" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoCarousel.png" alt="">
+            </i>
+            <span>BS5 Carousel</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 OffCanvas">
+          <a href="#offcanvas" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoOffCanvas.png" alt="">
+            </i>
+            <span>BSS OffCanvas</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Progress Bar">
+          <a href="#progressbars" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoProgressBar.png" alt="">
+            </i>
+            <span>BS5 Progress Bar</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Range">
+          <a href="#range" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoRanges.png" alt="">
+            </i>
+            <span>BS5 Range</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Images">
+          <a href="#images" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoImages.png" alt="">
+            </i>
+            <span>BS5 Images</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Cards">
+          <a href="#cards" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoCard.png" alt="">
+            </i>
+            <span>BS5 Cards</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Collapse">
+          <a href="#collapse" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoCollapse.png" alt="">
+            </i>
+            <span>BS5 Collapse</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Toast">
+          <a href="#toast" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoToast.png" alt="">
+            </i>
+            <span>BS5 Toast</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Button Groups">
+          <a href="#button-groups" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoButtonGroups.png" alt="">
+            </i>
+            <span>BS5 Button Groups</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Dark Mode">
+          <a href="#dark-mode" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoDarkMode.png" alt="">
+            </i>
+            <span>BS5 Dark Mode</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Modal">
+          <a href="#modal" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoModal.png" alt="">
+            </i>
+            <span>BS5 Modal</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Scroll Spy">
+          <a href="#scrollspy" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoScrollSpy.png" alt="">
+            </i>
+            <span>BS5 Scroll Spy</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 List Groups">
+          <a href="#list-groups" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoListGroups.png" alt="">
+            </i>
+            <span>BS5 List Groups</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Form Validation">
+          <a href="#form-validation" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoFormValidation.png" alt="">
+            </i>
+            <span>BS5 Form Validation</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Utilities">
+          <a href="#utilities" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoUtilities.png" alt="">
+            </i>
+            <span>BSS Utilities</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Pagination">
+          <a href="#pagination" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoPagination.png" alt="">
+            </i>
+            <span>BS5 Pagination</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Popover">
+          <a href="#popover" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoPopover.png" alt="">
+            </i>
+            <span>BS5 Popover</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Floating Labels">
+          <a href="#floating-labels" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoFloatingLabels.png" alt="">
+            </i>
+            <span>BS5 Floating Labels</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Checks and Radios">
+          <a href="#checkbox-radio" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoChecksRadios.png" alt="">
+            </i>
+            <span>BS5 Checks and Radios</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-bs-toggle="tooltip" data-bs-placement="right" title="BS5 Jumbotron"
+          style="margin-bottom: 20px;">
+          <a href="#jumbotron" class="sidebar-link">
+            <i class="lni lni-user">
+              <img class="iconoIndice" src="Imágenes/icoJumbotron.png" alt="">
+            </i>
+            <span>Jumbotron</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <div id="demo" class="carousel slide" data-bs-ride="carousel" style="margin-left: 60px;">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Imágenes/Carousel1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+        <div class="carousel-caption">
+          <h3 class="texto_carousel">Lamborguini Countach lp500</h3>
+          <p name="texto">1974–1990</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Imágenes/Carousel2.jpg" alt="Chicago" class="d-block" style="width:100%">
+        <div class="carousel-caption">
+          <h3 class="texto_carousel">Porsche 911 Turbo</h3>
+          <p name="texto">1975-1989</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Imágenes/Carousel3.jpg" alt="New York" class="d-block" style="width:100%">
+        <div class="carousel-caption">
+          <h3 class="texto_carousel">Ferrari F40</h3>
+          <p name="texto">1987-1992</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Imágenes/Carousel4.jpg" alt="New York" class="d-block" style="width:100%">
+        <div class="carousel-caption">
+          <h3 class="texto_carousel">BMW M1 Procar</h3>
+          <p name="texto">1978–1981</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <div class="container_div_titulo">
+    <h1 id="titulo">Elementos Bootstrap</h1>
+  </div>
+
+  <div class="contenido">
+    <!-- Tables -->
+
+    <h2 id="tablas" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Tables</h2>
+    <hr>
+    <p>Para trabajar con tablas en Bootstrap 5, es fundamental utilizar la clase base <code>table</code>, que aplica
+      estilos básicos como bordes suaves y una alineación consistente.</p>
+
+    <p>Para mejorar la apariencia visual, puedes añadir clases como <code>table-striped</code> para alternar el fondo de
+      las filas, <code>table-bordered</code> para agregar bordes a todas las celdas, y <code>table-hover</code> para
+      resaltar las filas al pasar el cursor sobre ellas. Si prefieres un esquema de colores oscuro, la clase
+      <code>table-dark</code> aplica un fondo oscuro a la tabla.
+    </p>
+
+    <p>Para hacer que una tabla sea responsive y se adapte a diferentes tamaños de pantalla, envuélvela dentro de un
+      contenedor con la clase <code>table-responsive</code>. Esto permite que la tabla se desplace horizontalmente en
+      dispositivos con pantallas más pequeñas.</p>
+
+    <p>Además, puedes utilizar clases como <code>table-sm</code> para reducir el espaciado de las celdas y hacer la
+      tabla más compacta. Para alinear el contenido de las celdas, emplea clases como <code>text-start</code>,
+      <code>text-center</code> y <code>text-end</code>. Si deseas aplicar colores específicos a filas o celdas, puedes
+      usar clases como <code>table-primary</code>, <code>table-success</code> o <code>table-danger</code>, que aplican
+      colores de fondo predefinidos para resaltar información importante.
+    </p>
+
+    <p>Para personalizar el encabezado de la tabla, las clases <code>thead-dark</code> y <code>thead-light</code>
+      permiten aplicar estilos oscuros o claros al fondo del elemento <code>&lt;thead&gt;</code>, diferenciándolo
+      visualmente del resto de la tabla.</p>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-striped table-borderless" style="text-align: center;">
+        <thead class="thead-light">
+          <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Velocidad M.</th>
+            <th>PotenciaQA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-success">
+            <td>Lamborghini</td>
+            <td>Countach</td>
+            <td>1974</td>
+            <td>309 km/h</td>
+            <td>375</td>
+          </tr>
+          <tr class="table-info">
+            <td>Porsche</td>
+            <td>911 Turbo</td>
+            <td>1975</td>
+            <td>260 km/h</td>
+            <td>260</td>
+          </tr>
+          <tr class="table-primary">
+            <td>Ferrari</td>
+            <td>F40</td>
+            <td>1987</td>
+            <td>324 km/h</td>
+            <td>478</td>
+          </tr>
+          <tr class="table-danger">
+            <td>BMW</td>
+            <td>M1</td>
+            <td>1978</td>
+            <td>260 km/h</td>
+            <td>277</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-dark table-hover table-bordered" style="text-align: center;">
+        <thead class="table-success">
+          <tr>
+            <th>#</th>
+            <th>Modelo</th>
+            <th>Diseñador</th>
+            <th>Producción</th>
+            <th>Carrocería</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Countach</td>
+            <td>Marcello Gandini</td>
+            <td>1974-1990</td>
+            <td>Coupe</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>911 Turbo</td>
+            <td>Ferdinand Porsche</td>
+            <td>1975-1989</td>
+            <td>Coupe</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>F40</td>
+            <td>Leonardo Fioravanti</td>
+            <td>1987-1992</td>
+            <td>Coupe</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>M1</td>
+            <td>Giorgetto Giugiaro</td>
+            <td>1978-1981</td>
+            <td>Coupe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Dropdowns -->
+
+    <h2 id="dropdowns" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Dropdowns</h2>
+    <hr>
+    <p>Un menu dropdown es un menú alternable que permite al usuario elegir un valor de una lista predefinida.</p>
+    <p>Se crea con la clase <code>dropdown</code>, para abrir el menú desplegable, utilice un botón o un enlace con la
+      clase <code>.dropdown-toggle</code> y el atributo <code>data-bs-toggle="dropdown"</code>.</p>
+    <p>Agregue la <code>.dropdown-menu</code> clase a un elemento contenedor, como <code>&lt;div&gt;</code> o
+      <code>&lt;ul&gt;</code>, para crear el menú desplegable. Luego, agregue la <code>.dropdown-item</code> clase a
+      cada elemento (enlaces o botones) dentro del menú desplegable.
+    </p>
+    <p>También se le pueden añadir divisores para separar elementos, con la clase <code>.dropdown-divider</code>. Como
+      también podemos agregar encabezados para agrupar los elementos, esta opción se hace con la clase
+      <code>.dropdown-header</code>.
+    </p>
+
+    <div class="dropdown" style="text-align: center; margin-bottom: 30px;">
+      <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" style="filter: invert();">
+        Pínchame
+      </button>
+      <ul class="dropdown-menu">
+        <li class="li_dropdown">
+          <h5 class="dropdown-header">Italia</h5>
+        </li>
+        <li class="li_dropdown"><a class="dropdown-item">Lamborguini</a></li>
+        <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+        <li class="li_dropdown">
+          <h5 class="dropdown-header">Alemania</h5>
+        </li>
+        <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+        <li class="li_dropdown"><a class="dropdown-item">BMW</a></li>
+        <li class="li_dropdown">
+          <hr class="dropdown-divider">
+          </hr>
+        </li>
+        <li class="li_dropdown"><a class="dropdown-item">Más coches</a></li>
+      </ul>
+    </div>
+
+    <p>Para deshabilitar un elemento en el menú desplegable, use la <code>.disabled</code> clase (obtiene un color de
+      texto gris claro y un ícono de "señal de no estacionar" al pasar el mouse).</p>
+    <p>Resalte un elemento desplegable específico con la <code>.active</code> clase (agrega un color de fondo azul).</p>
+
+    <div class="dropdown" style="text-align: center; margin-bottom: 30px;">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" style="filter: invert();">
+        Pínchame
+      </button>
+      <ul class="dropdown-menu">
+        <li class="li_dropdown">
+          <h5 class="dropdown-header">Deshabilitado</h5>
+        </li>
+        <li class="li_dropdown" style="cursor: not-allowed;"><a class="dropdown-item disabled">Porsche</a></li>
+        <li class="li_dropdown">
+          <hr class="dropdown-divider">
+          </hr>
+        </li>
+        <li class="li_dropdown">
+          <h5 class="dropdown-header">Resaltado</h5>
+        </li>
+        <li class="li_dropdown"><a class="dropdown-item active">Lamborguini</a></li>
+      </ul>
+    </div>
+
+    <p>Hay muchas formas de asignar la posición del menú desplegable distinta a la predeterminada (abajo a la
+      izquierda):</p>
+
+    <div style="text-align: center;">
+      <div style="display: flex; justify-content: center;">
+        <div class="dropdown dropstart" style="margin-left: 40px; margin-bottom: 20px;">
+          <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+            Izquierda
+          </button>
+          <ul class="dropdown-menu">
+            <li class="li_dropdown"><a class="dropdown-item">Lamborguini</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+          </ul>
+        </div>
+        <div class="dropdown dropend" style="margin-left: 40px; margin-bottom: 20px;">
+          <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+            Derecha
+          </button>
+          <ul class="dropdown-menu">
+            <li class="li_dropdown"><a class="dropdown-item">Lamborguini</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="dropdown dropdown-menu-end" style="margin-left: 40px; margin-bottom: 20px;">
+          <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+            Abajo a la derecha
+          </button>
+          <ul class="dropdown-menu">
+            <li class="li_dropdown"><a class="dropdown-item">Lamborguini</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="dropup mb-4" style="margin-left: 40px;">
+            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+              Arriba
+            </button>
+            <ul class="dropdown-menu">
+              <li class="li_dropdown"><a class="dropdown-item">Lamborguini</a></li>
+              <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+              <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>También se pueden agrupar junto a otros botones, de manera horizontal y vertical (a esta última se cambia la
+      clase <code>btn-group</code> por <code>btn-group-vertical</code>).</p>
+    <div style="text-align: center;">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-secondary">Francia</button>
+        <button type="button" class="btn btn-secondary">Japón</button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Italia</button>
+          <ul class="dropdown-menu">
+            <li class="li_dropdown"><a class="dropdown-item">Lamborghini</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">Ferrari</a></li>
+          </ul>
+        </div>
+      </div>
+      <br><br>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary">Inglaterra</button>
+        <button type="button" class="btn btn-secondary">Rusia</button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Alemania</button>
+          <ul class="dropdown-menu">
+            <li class="li_dropdown"><a class="dropdown-item">Porsche</a></li>
+            <li class="li_dropdown"><a class="dropdown-item">BMW</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Forms -->
+
+    <h2 id="forms" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Forms</h2>
+    <hr>
+    <p>Los formularios en Bootstrap 5 son un conjunto de clases y estilos que permiten construir formularios
+      responsivos, estéticos y fáciles de usar. Incluyen soporte para una variedad de elementos como entradas de texto,
+      botones, checkboxes, radios y más.</p>
+    <p>Utiliza la clase <code>.form-control</code> para campos de entrada como <code>&lt;input&gt;</code> o
+      <code>&lt;textarea&gt;</code>, y <code>.form-select</code> para listas desplegables.
+    </p>
+    <p>Los formularios también pueden estructurarse utilizando clases como <code>.row</code> y <code>.col</code> para
+      crear distribuciones en línea o apiladas.</p>
+    <p>Además, se pueden personalizar con tamaños mediante clases como <code>.form-control-lg</code> y
+      <code>.form-control-sm</code>, y se pueden agregar estilos interactivos para checkboxes y radios con
+      <code>.form-check</code>, <code>.form-check-input</code> y <code>.form-check-label</code>.
+    </p>
+
+    <div style="background-color: #298c403e; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <form action="javascript:void(0)" method="POST">
+        <!-- Campo de Correo Electrónico -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo" required>
+        </div>
+
+        <!-- Campo de Contraseña -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password"
+            placeholder="Introduce tu contraseña" required>
+        </div>
+
+        <!-- Selector de País -->
+        <div class="mb-3">
+          <label for="country" class="form-label">País:</label>
+          <select class="form-select" id="country" name="country">
+            <option value="es">España</option>
+            <option value="mx">México</option>
+            <option value="us">Estados Unidos</option>
+          </select>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="mb-3">
+          <label for="comments" class="form-label">Comentarios:</label>
+          <textarea class="form-control" id="comments" name="comments" rows="4"
+            placeholder="Escribe tus comentarios aquí"></textarea>
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+          <label class="form-check-label" for="newsletter">Deseo recibir el boletín de noticias</label>
+        </div>
+
+        <!-- Radio Buttons -->
+        <div class="mb-3">
+          <label class="form-label">Selecciona tu género:</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="male" name="gender" value="male">
+            <label class="form-check-label" for="male">Masculino</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="female" name="gender" value="female">
+            <label class="form-check-label" for="female">Femenino</label>
+          </div>
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" class="btn btn-success">Registrar</button>
+      </form>
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Flex -->
+
+    <h2 id="flex" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Flex</h2>
+    <hr>
+    <p>La utilidad <strong>Flex</strong> en Bootstrap 5 permite manejar diseños basados en el modelo de flexbox de CSS
+      de forma sencilla. Estas clases ofrecen control sobre la disposición, alineación y espaciado de elementos dentro
+      de un contenedor flexible.</p>
+
+    <p>Para activar el diseño flexbox, utiliza <code>.d-flex</code>. Puedes definir la dirección de los elementos con
+      <code>.flex-row</code> (fila) o <code>.flex-column</code> (columna).
+    </p>
+
+    <div class="d-flex flex-row" style="justify-content: center;">
+      <div class="p-2 bg-primary text-white">Lamborguini</div>
+      <div class="p-2 bg-secondary text-white">Porsche</div>
+      <div class="p-2 bg-success text-white">Ferrari</div>
+    </div>
+    <br>
+
+    <p>Puedes usar las clases <code>.justify-content-*</code> para alinear los elementos horizontalmente, y
+      <code>.align-items-*</code> para alinear verticalmente.
+    </p>
+
+    <div class="d-flex justify-content-between align-items-center" style="height: 100px;">
+      <div class="p-2 bg-warning text-dark">Ferrari</div>
+      <div class="p-2 bg-info text-white">BMW</div>
+      <div class="p-2 bg-danger text-white">Lamborguini</div>
+    </div>
+
+    <p>El ajuste de elementos se controla con <code>.flex-wrap</code> o <code>.flex-nowrap</code>. Esto es útil para
+      manejar elementos que no caben en una sola línea.</p>
+
+    <div class="d-flex flex-wrap" style="justify-content: center;">
+      <div class="p-2 bg-success text-white">Lamborghini</div>
+      <div class="p-2 bg-secondary text-white">BMW</div>
+      <div class="p-2 bg-danger text-white">Ferrari</div>
+      <div class="p-2 bg-warning text-dark">Porsche</div>
+      <div class="p-2 bg-info text-white">Nissan</div>
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Navs -->
+
+    <h2 id="navs" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Navs</h2>
+    <hr>
+    <p>Las <strong>Navs</strong> en Bootstrap 5 son componentes de navegación versátiles que permiten estructurar menús
+      y enlaces de forma clara y estéticamente agradable. Puedes usar diferentes estilos como listas básicas, pestañas
+      (<code>tabs</code>), píldoras (<code>pills</code>), navegación vertical y combinarlos con JavaScript para
+      funcionalidades más avanzadas.</p>
+
+    <p>La navegación básica utiliza una lista (<code>&lt;ul&gt;</code>) con las clases <code>.nav</code>,
+      <code>.nav-item</code> y <code>.nav-link</code> para estructurar el menú. Puedes destacar el enlace activo con
+      <code>.active</code> y deshabilitar otros con <code>.disabled</code>.
+    </p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Desactivado</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Navegación con Tabs</h3>
+    <p>El uso de <code>.nav-tabs</code> crea un estilo de pestañas, con un borde inferior en el enlace activo. Esto es
+      ideal para secciones que se dividen en categorías o pestañas.</p>
+
+    <div style="background-color: #e9ecef; padding: 20px; border-radius: 8px; border: 1px solid #ced4da;">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Desactivado</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Navegación con Pills</h3>
+    <p>Para un diseño más dinámico, puedes usar <code>.nav-pills</code>. Este estilo resalta el enlace activo con un
+      fondo sólido.</p>
+
+    <div style="background-color: #f1f3f5; padding: 20px; border-radius: 8px; border: 1px solid #adb5bd;">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Desactivado</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Navegación Vertical</h3>
+    <p>Para cambiar la orientación de la navegación a vertical, agrega la clase <code>.flex-column</code> al contenedor
+      <code>.nav</code>.
+    </p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Desactivado</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Alineación de Navegación</h3>
+    <p>Puedes alinear la navegación horizontalmente utilizando clases de utilidad como
+      <code>.justify-content-center</code> y <code>.justify-content-end</code>.
+    </p>
+
+    <p><strong>Ejemplo 1:</strong> Centrada</p>
+    <div style="background-color: #e9ecef; padding: 20px; border-radius: 8px; border: 1px solid #ced4da;">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Otro Enlace</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+
+    <p><strong>Ejemplo 2:</strong> A la derecha</p>
+    <div style="background-color: #f1f3f5; padding: 20px; border-radius: 8px; border: 1px solid #adb5bd;">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)">Activo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Enlace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Otro Enlace</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Con JavaScript: Tabs y Pills Dinámicos</h3>
+    <p>Bootstrap incluye soporte para la navegación dinámica con JavaScript. Los enlaces <code>.nav-link</code> con
+      <code>data-bs-toggle="tab"</code> permiten alternar entre secciones de contenido.
+    </p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+            role="tab" aria-controls="home" aria-selected="true">Inicio</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+            role="tab" aria-controls="profile" aria-selected="false">Perfil</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+            role="tab" aria-controls="contact" aria-selected="false">Contacto</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <br>
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Contenido de Inicio.
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Contenido de Perfil.</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Contenido de Contacto.
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Input Groups -->
+
+    <h2 id="input-groups" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Input Groups</h2>
+    <hr>
+    <p>Los <strong>Input Groups</strong> en Bootstrap permiten combinar campos de entrada con elementos adicionales,
+      como texto, iconos o botones. Estos componentes son útiles para enriquecer los formularios con contexto visual o
+      funcionalidad adicional.</p>
+
+    <h3>Input con Texto</h3>
+    <p>Para añadir texto antes o después de un campo de entrada, usa <code>.input-group</code>,
+      <code>.input-group-text</code>, y coloca los elementos relacionados dentro del contenedor.
+    </p>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">@</span>
+      <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="Nombre de usuario"
+        aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <hr>
+
+    <h3>Input con Botón</h3>
+    <p>Para combinar un campo de entrada con un botón, coloca el botón dentro del grupo de entrada.</p>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Input con Checkbox o Radio</h3>
+    <p>También puedes incluir un <code>checkbox</code> o un <code>radio button</code> dentro del grupo de entrada para
+      una experiencia más rica.</p>
+
+    <div style="background-color: #f1f3f5; padding: 20px; border-radius: 8px; border: 1px solid #adb5bd;">
+      <div class="input-group mb-3">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox para permitir entrada">
+        </div>
+        <input type="text" class="form-control" aria-label="Texto con checkbox">
+      </div>
+      <div class="input-group">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio para permitir entrada">
+        </div>
+        <input type="text" class="form-control" aria-label="Texto con radio">
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Input con Múltiples Elementos</h3>
+    <p>Los grupos de entrada también admiten múltiples elementos, como añadir texto a ambos lados del campo de entrada.
+    </p>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input type="text" class="form-control" aria-label="Monto (con separador de dólares)">
+      <span class="input-group-text">.00</span>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Input con Dropdown</h3>
+    <p>Puedes combinar un campo de entrada con un menú desplegable usando <code>.dropdown</code>.</p>
+
+    <div class="input-group mb-3">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Opciones</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="javascript:void(0)">Acción</a></li>
+        <li><a class="dropdown-item" href="javascript:void(0)">Otra acción</a></li>
+        <li><a class="dropdown-item" href="javascript:void(0)">Algo más</a></li>
+      </ul>
+      <input type="text" class="form-control" aria-label="Texto con dropdown">
+    </div>
+    <br>
+    <hr>
+
+    <h3>Tamaños de Input Groups</h3>
+    <p>Los grupos de entrada admiten tamaños diferentes usando las clases <code>.input-group-sm</code> y
+      <code>.input-group-lg</code> para campos más pequeños o grandes, respectivamente.
+    </p>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Pequeño</span>
+      <input type="text" class="form-control" aria-label="Campo de entrada pequeño"
+        aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Normal</span>
+      <input type="text" class="form-control" aria-label="Campo de entrada normal"
+        aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Grande</span>
+      <input type="text" class="form-control" aria-label="Campo de entrada grande"
+        aria-describedby="inputGroup-sizing-lg">
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Badges -->
+
+    <h2 id="badges" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Badges</h2>
+    <hr>
+    <p>Los <strong>badges</strong> en Bootstrap se utilizan para mostrar información adicional o notificaciones en
+      componentes como botones, encabezados o listas. Puedes personalizarlos fácilmente con diferentes colores y
+      estilos.</p>
+
+    <h3>Badges Básicos</h3>
+    <p>Para crear un badge básico, utiliza la clase <code>.badge</code>. Los badges se pueden añadir dentro de cualquier
+      elemento de texto o contenedor.</p>
+
+    <div style="background-color: #94949487; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <h1>Encabezado <span class="badge bg-light text-dark">Nuevo</span></h1>
+      <h2
+        style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        Encabezado <span class="badge bg-light text-dark">Nuevo</span></h2>
+      <h3>Encabezado <span class="badge bg-light text-dark">Nuevo</span></h3>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Badges en Botones</h3>
+    <p>Los badges se pueden incluir en botones para mostrar información adicional, como notificaciones o conteos.</p>
+
+    <button type="button" class="btn btn-primary">
+      Notificaciones <span class="badge bg-light text-dark">4</span>
+    </button>
+    <button type="button" class="btn btn-success">
+      Mensajes <span class="badge bg-danger">7</span>
+    </button>
+    <br><br>
+    <hr>
+
+    <h3>Badges como Elementos Independientes</h3>
+    <p>También puedes usar los badges como elementos independientes fuera de botones o encabezados.</p>
+
+    <span class="badge bg-primary">Primario</span>
+    <span class="badge bg-secondary">Secundario</span>
+    <span class="badge bg-success">Éxito</span>
+    <span class="badge bg-danger">Peligro</span>
+    <span class="badge bg-warning text-dark">Advertencia</span>
+    <span class="badge bg-info text-dark">Info</span>
+    <span class="badge bg-light text-dark">Claro</span>
+    <span class="badge bg-dark">Oscuro</span>
+    <br><br>
+    <hr>
+
+    <h3>Badges con Links</h3>
+    <p>Puedes convertir un badge en un enlace utilizando la etiqueta <code>&lt;a&gt;</code> con la clase
+      <code>.badge</code>.
+    </p>
+
+    <a href="javascript:void(0)" class="badge bg-primary">Primario</a>
+    <a href="javascript:void(0)" class="badge bg-secondary">Secundario</a>
+    <a href="javascript:void(0)" class="badge bg-success">Éxito</a>
+    <a href="javascript:void(0)" class="badge bg-danger">Peligro</a>
+    <br><br>
+    <hr>
+
+    <h3>Badges Redondeados (Pill Badges)</h3>
+    <p>Para un diseño redondeado, añade la clase <code>.rounded-pill</code> junto con <code>.badge</code>.</p>
+
+    <span class="badge rounded-pill bg-primary">Primario</span>
+    <span class="badge rounded-pill bg-secondary">Secundario</span>
+    <span class="badge rounded-pill bg-success">Éxito</span>
+    <span class="badge rounded-pill bg-danger">Peligro</span>
+    <span class="badge rounded-pill bg-warning text-dark">Advertencia</span>
+    <span class="badge rounded-pill bg-info text-dark">Info</span>
+    <span class="badge rounded-pill bg-light text-dark">Claro</span>
+    <span class="badge rounded-pill bg-dark">Oscuro</span>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Buttons -->
+
+    <h2 id="buttons" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Buttons</h2>
+    <hr>
+    <p>Los <strong>botones</strong> en Bootstrap son elementos interactivos que permiten a los usuarios realizar
+      acciones. Se pueden personalizar con diferentes estilos, tamaños y funcionalidades.</p>
+
+    <h3>Botones Básicos</h3>
+    <p>Bootstrap ofrece clases predeterminadas para botones con diferentes estilos. Los colores principales incluyen
+      <code>.btn-primary</code>, <code>.btn-secondary</code>, <code>.btn-success</code>, <code>.btn-danger</code>,
+      <code>.btn-warning</code>, <code>.btn-info</code>, <code>.btn-light</code> y <code>.btn-dark</code>.
+    </p>
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <br>
+    <hr>
+
+    <h3>Botones de Enlace</h3>
+    <p>Los botones también se pueden aplicar a enlaces utilizando la etiqueta <code>&lt;a&gt;</code> junto con las
+      clases de botón.</p>
+
+    <a href="javascript:void(0)" class="btn btn-success">Primero</a>
+    <a href="javascript:void(0)" class="btn btn-secondary">Segundo</a>
+    <br>
+    <hr>
+
+    <h3>Botones de Tamaño</h3>
+    <p>Puedes cambiar el tamaño de los botones utilizando las clases <code>.btn-lg</code> para botones grandes y
+      <code>.btn-sm</code> para botones pequeños.
+    </p>
+
+    <button type="button" class="btn btn-danger btn-lg">Gigante</button>
+    <button type="button" class="btn btn-warning btn-sm">Diminuto</button>
+    <br>
+    <hr>
+
+    <h3>Botones de Estado Activo</h3>
+    <p>Para mostrar un botón como "activo", añade la clase <code>.active</code>.</p>
+
+    <button type="button" class="btn btn-primary active" aria-pressed="true">Activo</button>
+    <br>
+    <hr>
+
+    <h3>Botones Deshabilitados</h3>
+    <p>Puedes deshabilitar un botón añadiendo el atributo <code>disabled</code> o la clase <code>.disabled</code>.</p>
+
+    <button type="button" class="btn btn-primary" disabled>Desabilitado</button>
+    <a href="javascript:void(0)" class="btn btn-secondary disabled" tabindex="-1" aria-disabled="true">Link desabilitado</a>
+    <br>
+    <hr>
+
+    <h3>Botones de Ancho Completo</h3>
+    <p>Para crear un botón que ocupe el ancho completo de su contenedor, utiliza la clase <code>.w-100</code>.</p>
+
+    <button type="button" class="btn btn-success w-100">Ancho completo</button>
+    <br>
+    <hr>
+
+    <h3>Botones de Grupo</h3>
+    <p>Los botones se pueden agrupar juntos utilizando el componente de grupos de botones <code>.btn-group</code>.</p>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">Izquierda</button>
+      <button type="button" class="btn btn-secondary">Centro</button>
+      <button type="button" class="btn btn-success">Derecha</button>
+    </div>
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Select Menus -->
+    <h2 id="select-menus" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Select Menus</h2>
+    <hr>
+    <p>Los <strong>select menus</strong> en Bootstrap son menús desplegables que permiten a los usuarios elegir una
+      opción de una lista. Utilizan la clase <code>.form-select</code> para aplicarle estilos al elemento
+      <code>&lt;select&gt;</code>.
+    </p>
+
+    <h3>Menú Select Básico</h3>
+    <p>Para crear un menú desplegable básico, usa la clase <code>.form-select</code> en el elemento
+      <code>&lt;select&gt;</code>.
+    </p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <label for="basicSelect" class="form-label">Selecciona una opción:</label>
+      <select class="form-select" id="basicSelect" aria-label="Default select example">
+        <option selected>BMW</option>
+        <option value="1">Lamborghini</option>
+        <option value="2">Ferrari</option>
+        <option value="3">Porsche</option>
+      </select>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Menús Select Deshabilitados</h3>
+    <p>Para deshabilitar un menú desplegable, añade el atributo <code>disabled</code> al elemento
+      <code>&lt;select&gt;</code>.
+    </p>
+
+    <div style="background-color: #e9ecef; padding: 20px; border-radius: 8px; border: 1px solid #ced4da;">
+      <label for="disabledSelect" class="form-label">Menú deshabilitado:</label>
+      <select class="form-select" id="disabledSelect" disabled>
+        <option selected>No se puede seleccionar</option>
+        <option value="1">Opción 1</option>
+        <option value="2">Opción 2</option>
+        <option value="3">Opción 3</option>
+      </select>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Menús Select con Múltiples Opciones</h3>
+    <p>Puedes permitir seleccionar múltiples opciones añadiendo el atributo <code>multiple</code> al elemento
+      <code>&lt;select&gt;</code>. Usa también la clase <code>.form-select</code> para mantener el estilo.
+    </p>
+
+    <div style="background-color: #f1f3f5; padding: 20px; border-radius: 8px; border: 1px solid #adb5bd;">
+      <label for="multiSelect" class="form-label">Selecciona múltiples opciones:</label>
+      <select class="form-select" id="multiSelect" multiple aria-label="Multiple select example">
+        <option value="1">Opción 1</option>
+        <option value="2">Opción 2</option>
+        <option value="3">Opción 3</option>
+        <option value="4">Opción 4</option>
+      </select>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Menús Select con Tamaños Personalizados</h3>
+    <p>Puedes cambiar la altura del menú select utilizando el atributo <code>size</code>. Esto define el número de
+      opciones visibles al mismo tiempo.</p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <label for="sizeSelect" class="form-label">Menú con tamaño personalizado:</label>
+      <select class="form-select" id="sizeSelect" size="3" aria-label="Size select example">
+        <option value="1">Opción 1</option>
+        <option value="2">Opción 2</option>
+        <option value="3">Opción 3</option>
+        <option value="4">Opción 4</option>
+        <option value="5">Opción 5</option>
+      </select>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Tooltip -->
+
+    <h2 id="tooltip" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Tooltip</h2>
+    <hr>
+    <p>Los <strong>tooltips</strong> son pequeños cuadros de texto que aparecen al pasar el cursor sobre un elemento.
+      Bootstrap permite implementarlos fácilmente utilizando el atributo <code>data-bs-toggle="tooltip"</code>.</p>
+
+    <h3>Activar Tooltips</h3>
+    <p>Para habilitar tooltips, debes incluir el atributo <code>data-bs-toggle="tooltip"</code> en un elemento y
+      asignarle un mensaje utilizando el atributo <code>title</code>. Asegúrate de inicializar los tooltips con
+      JavaScript.</p>
+
+    <p><strong>Nota:</strong> Es necesario incluir el paquete de JavaScript de Bootstrap para que los tooltips
+      funcionen.</p>
+
+    <!-- Ejemplo Básico -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+      title="Tooltip en la parte superior">
+      Hover para Tooltip
+    </button>
+    <br><br>
+    <hr>
+
+    <h3>Posición del Tooltip</h3>
+    <p>Puedes cambiar la posición del tooltip utilizando el atributo <code>data-bs-placement</code>. Las opciones
+      disponibles son: <code>top</code>, <code>right</code>, <code>bottom</code>, y <code>left</code>.</p>
+
+    <div style="text-align: center;">
+      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Tooltip en la parte superior">
+        Superior
+      </button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right"
+        title="Tooltip en la derecha">
+        Derecha
+      </button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        title="Tooltip en la parte inferior">
+        Inferior
+      </button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left"
+        title="Tooltip en la izquierda">
+        Izquierda
+      </button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Tooltip Activado Automáticamente</h3>
+    <p>Los tooltips no se activan automáticamente; necesitas inicializarlos manualmente con JavaScript. Aquí tienes un
+      ejemplo del código necesario:</p>
+
+    <pre>
+      <code>
+        // Inicializar todos los tooltips en la página
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      </code>
+    </pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Carousel -->
+
+    <h2 id="carousel" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Carousel</h2>
+    <hr>
+    <p>Un <strong>carousel</strong> en Bootstrap es un componente que permite mostrar una serie de contenido (imágenes o
+      texto) de manera cíclica, con la posibilidad de navegar entre ellos mediante controles.</p>
+
+    <h3>Ejemplo Básico</h3>
+    <p>El carousel básico requiere un contenedor <code>&lt;div class="carousel slide"&gt;</code> y un contenedor interno
+      para los elementos del carousel <code>&lt;div class="carousel-inner"&gt;</code>. Cada elemento del carousel debe
+      tener la clase <code>carousel-item</code>. Agrega indicadores y controles para navegar.</p>
+
+    <!-- Carousel básico -->
+    <div id="basicCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#basicCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#basicCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#basicCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Imágenes/Carousel2.jpg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+          <img src="Imágenes/Carousel4.jpg" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img src="Imágenes/Carousel1.jpg" class="d-block w-100" alt="Slide 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#basicCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#basicCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Carousel con Captions</h3>
+    <p>El carousel puede incluir captions (títulos y descripciones) para cada elemento, dentro de un contenedor
+      <code>&lt;div class="carousel-caption"&gt;</code>.
+    </p>
+
+    <!-- Carousel con captions -->
+    <div id="captionCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Imágenes/Carousel3.jpg" class="d-block w-100" alt="Slide 1">
+          <div class="carousel-caption d-md-block">
+            <h5>Primera imagen</h5>
+            <p>Descripción de la primera imagen.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Imágenes/Carousel1.jpg" class="d-block w-100" alt="Slide 2">
+          <div class="carousel-caption d-md-block">
+            <h5>Segunda imagen</h5>
+            <p>Descripción de la segunda imagen.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Imágenes/Carousel2.jpg" class="d-block w-100" alt="Slide 3">
+          <div class="carousel-caption d-md-block">
+            <h5>Tercera imagen</h5>
+            <p>Descripción de la tercera imagen.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#captionCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#captionCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Carousel con Intervalos Personalizados</h3>
+    <p>Puedes personalizar la duración de cada slide utilizando el atributo <code>data-bs-interval</code> en cada
+      elemento <code>carousel-item</code>.</p>
+
+    <!-- Carousel con intervalos personalizados -->
+    <div id="intervalCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="1000">
+          <img src="Imágenes/Carousel4.jpg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="Imágenes/Carousel3.jpg" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img src="Imágenes/Carousel1.jpg" class="d-block w-100" alt="Slide 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#intervalCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#intervalCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Inicialización en JavaScript</h3>
+    <p>Los carousels pueden inicializarse y controlarse mediante JavaScript. A continuación, un ejemplo de cómo hacerlo:
+    </p>
+
+    <pre>
+      <code>
+        // Inicializar el carousel
+        var myCarousel = document.querySelector('#basicCarousel');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+          interval: 2000,
+          wrap: true
+        });
+      </code>
+    </pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- OffCanvas -->
+
+    <h2 id="offcanvas" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Offcanvas</h2>
+    <hr>
+    <p>El componente <strong>Offcanvas</strong> de Bootstrap permite crear paneles laterales que se deslizan hacia la
+      vista. Estos son útiles para menús de navegación, filtros o contenido adicional que puede ocultarse para ahorrar
+      espacio en la página.</p>
+
+    <h3>Ejemplo Básico</h3>
+    <p>Para crear un offcanvas básico, necesitas un botón que lo active y un contenedor con la clase
+      <code>offcanvas</code>. Asegúrate de incluir los atributos <code>data-bs-toggle="offcanvas"</code> y
+      <code>data-bs-target</code> en el botón.
+    </p>
+
+    <!-- Botón para abrir el Offcanvas -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#basicOffcanvas"
+      aria-controls="basicOffcanvas">
+      Abrir Offcanvas
+    </button>
+
+    <!-- Offcanvas básico -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="basicOffcanvas" aria-labelledby="basicOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 id="basicOffcanvasLabel">Título del Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body">
+        Este es el contenido del Offcanvas básico. Puedes añadir cualquier elemento aquí, como texto, imágenes o
+        enlaces.
+      </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h3>Offcanvas desde la Derecha</h3>
+    <p>Puedes cambiar la posición del offcanvas utilizando las clases <code>offcanvas-start</code>,
+      <code>offcanvas-end</code>, <code>offcanvas-top</code> o <code>offcanvas-bottom</code>.
+    </p>
+
+    <!-- Botón para abrir el Offcanvas desde la derecha -->
+    <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas"
+      aria-controls="rightOffcanvas">
+      Abrir Offcanvas desde la Derecha
+    </button>
+
+    <!-- Offcanvas desde la derecha -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="rightOffcanvas" aria-labelledby="rightOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 id="rightOffcanvasLabel">Offcanvas desde la Derecha</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body">
+        Este Offcanvas aparece desde el lado derecho de la pantalla.
+      </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h3>Offcanvas con Fondo Oscuro y Scroll</h3>
+    <p>Agrega el atributo <code>data-bs-scroll="true"</code> para permitir el desplazamiento dentro del Offcanvas y
+      <code>data-bs-backdrop="false"</code> para deshabilitar el fondo oscuro.
+    </p>
+
+    <!-- Botón para abrir el Offcanvas con scroll -->
+    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#scrollOffcanvas"
+      aria-controls="scrollOffcanvas">
+      Offcanvas con Scroll y Sin Fondo
+    </button>
+
+    <!-- Offcanvas con scroll -->
+    <div class="offcanvas offcanvas-top" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+      id="scrollOffcanvas" aria-labelledby="scrollOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 id="scrollOffcanvasLabel">Offcanvas con Scroll y Sin Fondo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body">
+        Este Offcanvas permite desplazarse por el contenido interno y no tiene fondo oscuro que bloquee la interacción
+        con el resto de la página.
+      </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h3>Inicialización con JavaScript</h3>
+    <p>Puedes controlar los Offcanvas utilizando JavaScript. Por ejemplo, para inicializar o mostrar un Offcanvas:</p>
+
+    <pre>
+<code>
+// Inicializar un Offcanvas
+var myOffcanvas = document.getElementById('basicOffcanvas');
+var offcanvas = new bootstrap.Offcanvas(myOffcanvas);
+
+// Mostrar el Offcanvas
+offcanvas.show();
+</code>
+</pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Progress bar -->
+
+    <h2 id="progressbars" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Progress Bars</h2>
+    <hr>
+    <p>Las barras de progreso son componentes visuales de Bootstrap que muestran el progreso de una tarea en curso. Se
+      construyen con la clase <code>.progress</code> para el contenedor y <code>.progress-bar</code> para el elemento de
+      la barra.</p>
+
+    <h3>Básico</h3>
+    <p>Una barra de progreso básica se crea utilizando un contenedor <code>&lt;div class="progress"&gt;</code> que
+      incluye un elemento con la clase <code>.progress-bar</code>. El ancho de la barra se controla con el estilo CSS
+      <code>width</code> o con el atributo <code>style</code>.
+    </p>
+
+    <!-- Barra de progreso básica -->
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0"
+        aria-valuemax="100">50%</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Múltiples Barras</h3>
+    <p>Es posible agregar varias barras dentro del mismo contenedor <code>.progress</code>. Cada barra puede tener un
+      color y un tamaño diferentes.</p>
+
+    <!-- Múltiples barras de progreso -->
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100">25%</div>
+      <div class="progress-bar bg-warning" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0"
+        aria-valuemax="100">35%</div>
+      <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0"
+        aria-valuemax="100">40%</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Barras Animadas</h3>
+    <p>Las barras de progreso animadas se crean agregando la clase <code>.progress-bar-animated</code>. Esto proporciona
+      un efecto de movimiento en la barra.</p>
+
+    <!-- Barra de progreso animada -->
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%;"
+        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Barras con Estilo Rayado</h3>
+    <p>Agrega la clase <code>.progress-bar-striped</code> para crear un efecto de rayado en la barra. Este estilo es
+      útil para indicar tareas en progreso.</p>
+
+    <!-- Barra de progreso rayada -->
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%;" aria-valuenow="60"
+        aria-valuemin="0" aria-valuemax="100">60%</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Alturas Personalizadas</h3>
+    <p>Puedes ajustar la altura de las barras de progreso utilizando clases de utilidad como <code>.progress-sm</code>,
+      o mediante CSS personalizado.</p>
+
+    <!-- Barra de progreso con altura personalizada -->
+    <div class="progress" style="height: 30px;">
+      <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar"
+        style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Inicialización con JavaScript</h3>
+    <p>Controla dinámicamente las barras de progreso utilizando JavaScript para actualizar su valor o apariencia.</p>
+
+    <pre>
+<code>
+// Ejemplo: Cambiar el progreso dinámicamente
+document.querySelector('.progress-bar').style.width = '90%';
+document.querySelector('.progress-bar').setAttribute('aria-valuenow', '90');
+</code>
+</pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Range -->
+
+    <h2 id="range" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Range</h2>
+    <hr>
+    <p>Los deslizadores (Range) en Bootstrap son controles de entrada que permiten seleccionar un valor dentro de un
+      rango definido. Se crean con el elemento <code>&lt;input type="range"&gt;</code> y se mejoran visualmente con las
+      clases de Bootstrap.</p>
+
+    <h3>Básico</h3>
+    <p>Para crear un control deslizante básico, utiliza el elemento <code>&lt;input type="range"&gt;</code> con la clase
+      <code>.form-range</code>. No requiere un contenedor adicional.
+    </p>
+
+    <!-- Deslizador básico -->
+    <label for="basicRange" class="form-label">Deslizador Básico</label>
+    <input type="range" class="form-range" id="basicRange">
+    <br>
+    <hr>
+
+    <h3>Con Rango Mínimo y Máximo</h3>
+    <p>Puedes definir el rango mínimo y máximo del deslizador utilizando los atributos <code>min</code> y
+      <code>max</code>. También puedes establecer un paso con el atributo <code>step</code>.
+    </p>
+
+    <!-- Deslizador con rango personalizado -->
+    <label for="customRange" class="form-label">Deslizador con Rango Personalizado</label>
+    <input type="range" class="form-range" min="0" max="100" step="10" id="customRange">
+    <br>
+    <hr>
+
+    <h3>Deslizador Deshabilitado</h3>
+    <p>Un deslizador puede deshabilitarse agregando el atributo <code>disabled</code>. Esto es útil para evitar que el
+      usuario interactúe con el control en ciertas condiciones.</p>
+
+    <!-- Deslizador deshabilitado -->
+    <label for="disabledRange" class="form-label">Deslizador Deshabilitado</label>
+    <input type="range" class="form-range" id="disabledRange" disabled>
+    <br>
+    <hr>
+
+    <h3>Inicialización con JavaScript</h3>
+    <p>Puedes controlar dinámicamente el valor del deslizador utilizando JavaScript. Esto te permite actualizar el rango
+      en tiempo real o sincronizarlo con otras interacciones de usuario.</p>
+
+    <pre>
+<code>
+// Ejemplo: Cambiar el valor del deslizador dinámicamente
+document.getElementById('customRange').value = 50;
+</code>
+</pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Images -->
+
+    <h2 id="images" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Images</h2>
+    <hr>
+    <p>Bootstrap proporciona utilidades para trabajar con imágenes de manera eficiente. Puedes añadir clases para darles
+      un diseño más responsivo, redondeado o agregar bordes. Estas clases son fáciles de aplicar y garantizan
+      compatibilidad con todos los dispositivos.</p>
+
+    <h3>Imágenes Responsivas</h3>
+    <p>Para hacer que una imagen sea responsiva y se adapte a diferentes tamaños de pantalla, utiliza la clase
+      <code>.img-fluid</code>. Esto asegura que la imagen se ajuste al ancho de su contenedor, manteniendo su proporción
+      de aspecto.
+    </p>
+
+    <!-- Imagen responsiva -->
+    <img src="Imágenes/Carousel1.jpg" class="img-fluid" alt="Imagen Responsiva">
+    <br><br>
+    <hr>
+
+    <h3>Imágenes Redondeadas</h3>
+    <p>Bootstrap incluye clases para agregar bordes redondeados a las imágenes. Usa <code>.rounded</code> para bordes
+      suaves y <code>.rounded-circle</code> para hacerlas completamente circulares.</p>
+
+    <!-- Imagen redondeada -->
+    <img src="Imágenes/Carousel2.jpg" class="img-fluid rounded" alt="Imagen Redondeada">
+    <br><br>
+    <!-- Imagen circular -->
+    <img src="Imágenes/Carousel3.jpg" class="img-fluid rounded-circle" alt="Imagen Circular">
+    <br><br>
+    <hr>
+
+    <h3>Imágenes en Miniatura</h3>
+    <p>Usa la clase <code>.img-thumbnail</code> para agregar un borde y un efecto de sombra a las imágenes, dándoles un
+      aspecto de miniatura. Esto es útil en galerías o vistas previas de imágenes.</p>
+
+    <!-- Imagen miniatura -->
+    <img src="Imágenes/Carousel4.jpg" class="img-thumbnail bg-success" alt="Imagen Miniatura">
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Cards -->
+
+    <h2 id="cards" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Cards</h2>
+    <hr>
+    <p>Las <strong>cards</strong> de Bootstrap son contenedores flexibles y extensibles que se utilizan para mostrar
+      contenido como texto, imágenes, enlaces, listas y más. Las cards son altamente personalizables y ofrecen un diseño
+      consistente en toda la página.</p>
+
+    <h3>Card Básica</h3>
+    <p>Una card básica incluye una clase <code>.card</code> para el contenedor y <code>.card-body</code> para el
+      contenido interno.</p>
+
+    <!-- Card básica -->
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Título de la Card</h5>
+        <p class="card-text">Esta es una card básica con contenido de ejemplo.</p>
+        <a href="javascript:void(0)" class="btn btn-primary">Más información</a>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Card con Imagen</h3>
+    <p>Para agregar una imagen en la parte superior de una card, usa <code>.card-img-top</code>. Esto es útil para
+      ilustrar el contenido de la card.</p>
+
+    <!-- Card con imagen -->
+    <div class="card" style="width: 18rem;">
+      <img src="Imágenes/Carousel2.jpg" class="card-img-top" alt="Imagen de ejemplo">
+      <div class="card-body">
+        <h5 class="card-title">Card con Imagen</h5>
+        <p class="card-text">Puedes usar esta card para mostrar contenido visual junto con texto.</p>
+        <a href="javascript:void(0)" class="btn btn-success">Ver más</a>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Card con Lista</h3>
+    <p>Las cards también pueden contener listas usando <code>.list-group</code> y <code>.list-group-item</code>. Esto es
+      útil para organizar información estructurada dentro de la card.</p>
+
+    <!-- Card con lista -->
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Lista de Ejemplo
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Lamborghini</li>
+        <li class="list-group-item">Ferrari</li>
+        <li class="list-group-item">Porsche</li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Card con Varias Columnas</h3>
+    <p>Las cards pueden organizarse en varias columnas utilizando <code>.card-group</code> o <code>.row</code> para un
+      diseño más complejo.</p>
+
+    <!-- Grupo de cards -->
+    <div class="card-group">
+      <div class="card">
+        <img src="Imágenes/Carousel1.jpg" class="card-img-top" alt="Imagen 1">
+        <div class="card-body">
+          <h5 class="card-title">Lamborghini</h5>
+          <p class="card-text">Creado por Ferruccio Lamborghini.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Imágenes/Carousel3.jpg" class="card-img-top" alt="Imagen 2">
+        <div class="card-body">
+          <h5 class="card-title">Ferrari</h5>
+          <p class="card-text">Creado por Enzo Ferrari.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Imágenes/Carousel4.jpg" class="card-img-top" alt="Imagen 3">
+        <div class="card-body">
+          <h5 class="card-title">BMW</h5>
+          <p class="card-text">Creado por Karl Rapp.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Collapse -->
+
+    <h2 id="collapse" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Collapse</h2>
+    <hr>
+    <p>El componente <strong>Collapse</strong> de Bootstrap permite mostrar u ocultar contenido con animaciones de
+      deslizamiento. Esto es útil para crear secciones expandibles y contraíbles en tu diseño.</p>
+
+    <h3>Collapse Simple</h3>
+    <p>Para crear un <em>collapse</em> simple, utiliza un botón con el atributo <code>data-bs-toggle="collapse"</code> y
+      un contenedor de contenido con la clase <code>.collapse</code>.</p>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+      <!-- Collapse simple -->
+      <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample">
+        Pínchame
+      </button>
+      <div class="collapse mt-3" id="collapseExample">
+        <div class="card card-body">
+          Este es un contenido que se puede mostrar y ocultar con un clic en el botón.
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Collapse en Grupo</h3>
+    <p>Puedes agrupar múltiples elementos de <em>collapse</em> usando el atributo <code>data-bs-parent</code>. Esto
+      asegura que solo un elemento esté expandido a la vez.</p>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h1 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Sección 1
+          </button>
+        </h1>
+        <div id="collapseOne" class="accordion-collapse collapse show bg-success" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body text-white">
+            Este es el contenido de la primera sección.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h1 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Sección 2
+          </button>
+        </h1>
+        <div id="collapseTwo" class="accordion-collapse collapse bg-success" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body text-white">
+            Este es el contenido de la segunda sección.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h1 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Sección 3
+          </button>
+        </h1>
+        <div id="collapseThree" class="accordion-collapse collapse bg-success" aria-labelledby="headingThree"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body text-white">
+            Este es el contenido de la tercera sección.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Toast -->
+
+    <h2 id="toast" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Toast</h2>
+    <hr>
+    <p>El componente <strong>Toast</strong> de Bootstrap se utiliza para mostrar mensajes breves y automáticos en la
+      interfaz de usuario, como notificaciones o alertas. Los <em>toasts</em> se pueden personalizar con contenido
+      dinámico y varias opciones de diseño.</p>
+
+    <h3>Toast Básico</h3>
+    <p>Un <strong>toast básico</strong> utiliza la clase <code>.toast</code> junto con <code>.toast-header</code> y
+      <code>.toast-body</code> para estructurar el contenido.
+    </p>
+
+    <!-- Toast básico -->
+    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="Imágenes/icoToast.png" alt="icon" style="width: 15px;">
+        <strong class="me-auto" style="margin-left: 10px;">Notificación</strong>
+        <small class="text-muted">hace 1 min</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Este es un mensaje básico de <em>toast</em>.
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Toast con Botón de Activación</h3>
+    <p>Puedes mostrar un <em>toast</em> usando JavaScript o con un botón que active el <code>.toast</code>. Utiliza el
+      método <code>bootstrap.Toast.show()</code> para mostrarlo programáticamente.</p>
+
+    <!-- Botón de activación -->
+    <button class="btn btn-warning" id="toastButton">Mostrar Toast</button>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="myToast">
+      <div class="toast-header">
+        <img src="Imágenes/icoToast.png" alt="icon" style="width: 15px;">
+        <strong class="me-auto" style="margin-left: 10px;">Notificación</strong>
+        <small class="text-muted">Ahora</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Este toast se activó con un botón.
+      </div>
+    </div>
+    <script>
+      const toastTrigger = document.getElementById('toastButton');
+      const toastElement = document.getElementById('myToast');
+      const toastInstance = new bootstrap.Toast(toastElement);
+      toastTrigger.addEventListener('click', () => {
+        toastInstance.show();
+      });
+    </script>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Button Groups -->
+
+    <h2 id="button-groups" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Button Groups</h2>
+    <hr>
+    <p>El componente <strong>Button Groups</strong> de Bootstrap permite agrupar varios botones en una única fila o
+      columna, lo que facilita organizar elementos relacionados.</p>
+
+    <h3>Grupo Básico de Botones</h3>
+    <p>Para crear un grupo básico de botones, utiliza la clase <code>.btn-group</code>. Asegúrate de incluir botones con
+      la clase <code>.btn</code> dentro del grupo.</p>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">Izquierda</button>
+      <button type="button" class="btn btn-primary">Centro</button>
+      <button type="button" class="btn btn-primary">Derecha</button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Grupo de Botones Vertical</h3>
+    <p>Para crear un grupo de botones en una disposición vertical, utiliza la clase <code>.btn-group-vertical</code>.
+    </p>
+
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+      <button type="button" class="btn btn-info">Botón 1</button>
+      <button type="button" class="btn btn-info">Botón 2</button>
+      <button type="button" class="btn btn-info">Botón 3</button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Grupos de Botones con Dropdown</h3>
+    <p>Es posible incluir <code>dropdowns</code> dentro de los grupos de botones. Usa la clase
+      <code>.dropdown-toggle</code> en uno de los botones para activarlos.
+    </p>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary">Botón 1</button>
+      <button type="button" class="btn btn-secondary">Botón 2</button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="javascript:void(0)">Acción</a></li>
+        <li><a class="dropdown-item" href="javascript:void(0)">Otra acción</a></li>
+        <li><a class="dropdown-item" href="javascript:void(0)">Algo más aquí</a></li>
+      </ul>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Grupos de Botones con Tamaños</h3>
+    <p>Los grupos de botones soportan tamaños diferentes utilizando las clases <code>.btn-group-lg</code> o
+      <code>.btn-group-sm</code> para botones grandes o pequeños, respectivamente.
+    </p>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+      <button type="button" class="btn btn-success">Grande</button>
+      <button type="button" class="btn btn-success">Grande</button>
+      <button type="button" class="btn btn-success">Grande</button>
+    </div>
+    <br><br>
+    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+      <button type="button" class="btn btn-warning">Pequeño</button>
+      <button type="button" class="btn btn-warning">Pequeño</button>
+      <button type="button" class="btn btn-warning">Pequeño</button>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Grupos de Botones Justificados</h3>
+    <p>Usa la clase <code>.d-flex</code> para hacer que un grupo de botones ocupe todo el ancho disponible.</p>
+
+    <div class="btn-group d-flex" role="group" aria-label="Justified button group">
+      <button type="button" class="btn btn-danger w-100">Izquierda</button>
+      <button type="button" class="btn btn-danger w-100">Centro</button>
+      <button type="button" class="btn btn-danger w-100">Derecha</button>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Dark Mode -->
+
+    <h2 id="dark-mode" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Dark Mode</h2>
+    <hr>
+    <p>Bootstrap ofrece soporte para un tema oscuro a través de clases específicas que cambian el diseño y estilo de los
+      elementos para que sean adecuados en un entorno de fondo oscuro.</p>
+
+    <h3>Habilitar el Modo Oscuro</h3>
+    <p>Para habilitar el modo oscuro, agrega la clase <code>.bg-dark</code> al elemento que actúa como contenedor
+      principal y usa la clase <code>.text-white</code> para aplicar texto blanco.</p>
+
+    <div class="bg-dark text-white p-3" style="border: 1px solid white; border-radius: 7px;">
+      <h5>Modo Oscuro Activo</h5>
+      <p>Este es un ejemplo de un contenedor con fondo oscuro y texto blanco.</p>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Colores de Fondo y Texto</h3>
+    <p>Bootstrap incluye clases para cambiar tanto el fondo como el color del texto. Por ejemplo,
+      <code>.bg-light</code>, <code>.bg-dark</code>, <code>.text-light</code>, y <code>.text-dark</code>.
+    </p>
+
+    <div class="p-3 mb-2 bg-light text-dark" style="border: 1px solid black; border-radius: 7px;">Fondo claro con texto
+      oscuro</div>
+    <div class="p-3 mb-2 bg-dark text-white" style="border: 1px solid white; border-radius: 7px;">Fondo oscuro con texto
+      claro</div>
+    <div class="p-3 mb-2 bg-primary text-white" style="border-radius: 7px;">Fondo azul con texto blanco</div>
+    <br>
+    <hr>
+
+    <h3>Modo Oscuro Automático</h3>
+    <p>Para implementar un modo oscuro automático que cambie según la configuración del sistema del usuario, usa las
+      media queries de CSS <code>prefers-color-scheme</code>.</p>
+
+    <p>Ejemplo de código CSS:</p>
+    <pre>
+<code>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: white;
+  }
+}
+</code>
+</pre>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Modal -->
+
+    <h2 id="modal" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Modal</h2>
+    <hr>
+    <p>Un modal es un cuadro de diálogo o ventana emergente que se muestra en la parte superior de la página. Bootstrap
+      facilita la creación de modales interactivos con diferentes estilos y comportamientos.</p>
+
+    <h3>Crear un Modal</h3>
+    <p>Para crear un modal básico, se necesitan tres elementos principales:</p>
+    <ul>
+      <li>Un botón o enlace que active el modal, con el atributo <code>data-bs-toggle="modal"</code> y
+        <code>data-bs-target="#modalID"</code>.
+      </li>
+      <li>Un contenedor principal para el modal con la clase <code>.modal</code> y un ID único.</li>
+      <li>El contenido del modal estructurado en secciones como <code>.modal-header</code>, <code>.modal-body</code>, y
+        <code>.modal-footer</code>.
+      </li>
+    </ul>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Pínchame
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Título del Modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Este es el contenido del modal.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Modal sin Efecto</h3>
+    <p>El efecto de desvanecimiento se puede eliminar eliminando la clase <code>.fade</code> del contenedor del modal.
+    </p>
+
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticModal">
+      Pínchame más
+    </button>
+
+    <div class="modal" id="staticModal" tabindex="-1" aria-labelledby="staticModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticModalLabel">Modal sin efecto de desvanecimiento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Este modal no tiene el efecto de desvanecimiento.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Modal Scrollable</h3>
+    <p>Para agregar la capacidad de desplazarse dentro del contenido del modal, usa la clase
+      <code>.modal-dialog-scrollable</code> en el contenedor del modal.
+    </p>
+
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#scrollableModal">
+      Otra vez porfa
+    </button>
+
+    <div class="modal fade" id="scrollableModal" tabindex="-1" aria-labelledby="scrollableModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scrollableModalLabel">Modal con Desplazamiento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Este es un ejemplo de contenido largo dentro de un modal. <br><br>
+            1. Un poco de contenido. <br>
+            2. Más contenido. <br>
+            3. Y más contenido... <br>
+            4. Y más... <br>
+            5. Muuucho más...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Scrollspy -->
+
+    <h2 id="scrollspy" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Scrollspy</h2>
+    <hr>
+    <p><b>Scrollspy</b> permite sincronizar una barra de navegación con las secciones de la página, resaltando
+      automáticamente
+      el enlace activo según la posición del usuario al desplazarse.</p>
+    <p>Añade <code>data-bs-spy="scroll"</code> al elemento que debe usarse como área desplazable (a menudo es este el
+      <code>&lt;body&gt;</code> elemento).
+    </p>
+    <p>A continuación, agrega el <code>data-bs-target</code> atributo con un valor de id o el nombre de la clase de la
+      barra de navegación (<code>.navbar</code>). Esto es para asegurarse de que la barra de navegación esté conectada
+      con el área desplazable.</p>
+    <p>Tenga en cuenta que los elementos desplazables deben coincidir con el ID de los enlaces dentro de los elementos
+      de lista de la barra de navegación (<code>&lt;div id="section1"&gt;</code> coincidencias
+      <code>&lt;a href="#section1"&gt;</code>).
+    </p>
+    <p>El atributo opcional <code>data-bs-offset</code> especifica la cantidad de píxeles que se deben desplazar desde
+      la parte superior al calcular la posición de desplazamiento. Esto resulta útil cuando cree que los enlaces dentro
+      de la barra de navegación cambian de estado activo demasiado pronto o demasiado pronto al saltar a los elementos
+      desplazables. El valor predeterminado es 10 píxeles.</p>
+
+    <iframe class="spytest" src="EjemploScrollspy.html" scrolling="yes" frameborder="0"
+      style="width: 100%; height: 350px;"></iframe>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- List Groups -->
+
+    <h2 id="list-groups" style="opacity: 0;">.</h2>
+    <br>
+    <h2>List Groups</h2>
+    <hr>
+    <p>Un <b>List Group</b> en Bootstrap es un componente flexible y poderoso para mostrar una serie de contenido, como
+      elementos de lista. Puedes usarlo para listas básicas, listas interactivas, y listas con contenido personalizado.
+    </p>
+
+    <h3>Lista Básica</h3>
+    <p>Para crear una lista básica, usa la clase <code>.list-group</code> en un contenedor, y
+      <code>.list-group-item</code> en cada elemento de la lista.
+    </p>
+
+    <ul class="list-group">
+      <li class="list-group-item">Primer elemento</li>
+      <li class="list-group-item">Segundo elemento</li>
+      <li class="list-group-item">Tercer elemento</li>
+    </ul>
+    <br>
+    <hr>
+
+    <h3>Lista Activa y Deshabilitada</h3>
+    <p>Usa <code>.active</code> para resaltar un elemento de la lista y <code>.disabled</code> para deshabilitarlo.</p>
+
+    <ul class="list-group">
+      <li class="list-group-item active">Elemento activo</li>
+      <li class="list-group-item">Elemento normal</li>
+      <li class="list-group-item disabled">Elemento deshabilitado</li>
+    </ul>
+    <br>
+    <hr>
+
+    <h3>Lista con Links</h3>
+    <p>Para crear una lista con enlaces interactivos, usa un contenedor <code>&lt;div&gt;</code> en lugar de
+      <code>&lt;ul&gt;</code> y elementos <code>&lt;a&gt;</code> con la clase <code>.list-group-item</code>.
+    </p>
+
+    <div class="list-group">
+      <a href="javascript:void(0)" class="list-group-item list-group-item-action active" aria-current="true">Enlace activo</a>
+      <a href="javascript:void(0)" class="list-group-item list-group-item-action">Enlace normal</a>
+      <a href="javascript:void(0)" class="list-group-item list-group-item-action disabled">Enlace deshabilitado</a>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Lista con Colores Contextuales</h3>
+    <p>Los list groups pueden usar clases contextuales para indicar estados o estilos:
+      <code>.list-group-item-primary</code>, <code>.list-group-item-success</code>,
+      <code>.list-group-item-danger</code>, entre otros.
+    </p>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-primary">Elemento azul</li>
+      <li class="list-group-item list-group-item-success">Elemento verde</li>
+      <li class="list-group-item list-group-item-danger">Elemento rojo</li>
+      <li class="list-group-item list-group-item-warning">Elemento amarillo</li>
+      <li class="list-group-item list-group-item-info">Elemento cian</li>
+    </ul>
+    <br>
+    <hr>
+
+    <h3>Lista con Contenido Personalizado</h3>
+    <p>Para incluir contenido adicional como encabezados, texto o botones, utiliza <code>&lt;div&gt;</code> como
+      contenedor de los elementos y estructura el contenido dentro de cada elemento.</p>
+
+    <div class="list-group">
+      <div class="list-group-item">
+        <h5 class="mb-1">Título del Elemento 1</h5>
+        <p class="mb-1">Este es un breve resumen del elemento.</p>
+        <small>Detalles adicionales aquí.</small>
+      </div>
+      <div class="list-group-item">
+        <h5 class="mb-1">Título del Elemento 2</h5>
+        <p class="mb-1">Otro breve resumen del elemento.</p>
+        <small>Más detalles aquí.</small>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Lista Horizontal</h3>
+    <p>Para mostrar una lista horizontal en lugar de vertical, usa la clase <code>.list-group-horizontal</code>. Esto es
+      útil para pantallas grandes.</p>
+
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">Elemento 1</li>
+      <li class="list-group-item">Elemento 2</li>
+      <li class="list-group-item">Elemento 3</li>
+    </ul>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Form Validation -->
+
+    <h2 id="form-validation" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Form Validation</h2>
+    <hr>
+    <p>La <b>Validación de Formularios</b> en Bootstrap utiliza atributos de HTML5 y clases para proporcionar
+      retroalimentación visual al usuario sobre el estado de los campos. Es altamente personalizable y funciona tanto
+      para validaciones del lado del cliente como del servidor.</p>
+
+    <h3>Formulario Validado con HTML5</h3>
+    <p>Bootstrap aprovecha los atributos de validación de formularios integrados en HTML5 como <code>required</code>,
+      <code>minlength</code>, <code>maxlength</code>, y otros.
+    </p>
+    <p>Añade la clase <code>.needs-validation</code> al formulario y usa <code>.was-validated</code> para mostrar la
+      retroalimentación tras el intento de validación.</p>
+
+    <form class="was-validated">
+      <div class="mb-3 mt-3">
+        <label for="uname" class="form-label">Usuario:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Introduzca usuario" name="uname" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Introduzca contraseña" name="pswd" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+        <label class="form-check-label" for="myCheck">Estoy de acuerdo con los términos y condiciones.</label>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Marca esta casilla para continuar.</div>
+      </div>
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+    <br>
+    <hr>
+
+    <h3>Validación Personalizada</h3>
+    <p>Bootstrap permite personalizar los mensajes de error y estilos con <code>.valid-feedback</code> y
+      <code>.invalid-feedback</code>. Puedes crear reglas adicionales para validar campos más específicos.
+    </p>
+
+    <form class="was-validated">
+      <div class="mb-3">
+        <label for="validationCustom03" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="validationCustom03" required>
+        <div class="invalid-feedback">Por favor, proporciona un nombre válido para la ciudad.</div>
+      </div>
+      <div class="mb-3">
+        <label for="validationCustom04" class="form-label">Estado</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Selecciona...</option>
+          <option>México</option>
+          <option>España</option>
+          <option>Argentina</option>
+        </select>
+        <div class="invalid-feedback">Por favor, selecciona un estado.</div>
+      </div>
+      <div class="mb-3">
+        <label for="validationCustom05" class="form-label">Código Postal</label>
+        <input type="text" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">Por favor, proporciona un código postal válido.</div>
+      </div>
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Utilities -->
+
+    <h2 id="utilities" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Utilities</h2>
+    <hr>
+    <p>Las <b>Utilities</b> en Bootstrap son una colección de clases útiles para realizar ajustes rápidos de diseño.
+      Estas clases permiten modificar el estilo de los elementos HTML sin necesidad de escribir CSS adicional. A
+      continuación, se describen algunas de las utilidades más importantes:</p>
+
+    <h3>Espaciado</h3>
+    <p>Las clases de espaciado controlan el margen (<code>m-*</code>) y el relleno (<code>p-*</code>). Puedes
+      especificar el tamaño del espacio utilizando valores de 0 a 5 o la palabra clave <code>auto</code>.</p>
+
+    <div class="p-3 mb-2 bg-primary text-white">Relleno de 3</div>
+    <div class="m-4 p-3 bg-success text-white">Margen de 4</div>
+    <br>
+    <hr>
+
+    <h3>Texto</h3>
+    <p>Las utilidades de texto incluyen alineación, transformación y truncamiento. Estas permiten ajustar rápidamente el
+      texto según sea necesario.</p>
+
+    <p class="text-center">Texto alineado al centro</p>
+    <p class="text-uppercase">Texto en mayúsculas</p>
+    <p class="text-lowercase">Texto en minúsculas</p>
+    <p class="text-truncate" style="max-width: 390px;">Este es un texto largo que se truncará si no cabe en el espacio.
+    </p>
+    <br>
+    <hr>
+
+    <h3>Colores</h3>
+    <p>Las utilidades de colores se utilizan para establecer el color del texto o el fondo. Estas clases comienzan con
+      <code>.text-</code> para el texto y <code>.bg-</code> para el fondo.
+    </p>
+
+    <div class="text-primary mb-2">Texto primario</div>
+    <div class="text-danger mb-2">Texto de peligro</div>
+    <div class="bg-warning text-dark p-2">Fondo amarillo con texto oscuro</div>
+    <br>
+    <hr>
+
+    <h3>Sombras</h3>
+    <p>Bootstrap incluye clases para agregar sombras a los elementos. Usa <code>.shadow</code> y sus variantes como
+      <code>.shadow-sm</code> y <code>.shadow-lg</code>.
+    </p>
+
+    <div class="shadow p-3 mb-3 bg-body rounded">Sombra predeterminada</div>
+    <div class="shadow-sm p-3 mb-3 bg-body rounded">Sombra pequeña</div>
+    <div class="shadow-lg p-3 mb-3 bg-body rounded">Sombra grande</div>
+    <br>
+    <hr>
+
+    <h3>Visibilidad</h3>
+    <p>Controla la visibilidad de los elementos utilizando <code>.visible</code> o <code>.invisible</code>. Los
+      elementos con <code>.invisible</code> son ocultos pero conservan su espacio.</p>
+
+    <div class="visible">Este texto es visible, pero el de debajo no, aunque ocupa su espacio.</div>
+    <div class="invisible">Este texto es invisible pero ocupa espacio</div>
+    <br>
+    <hr>
+
+    <h3>Posición</h3>
+    <p>Las clases de posición permiten posicionar elementos rápidamente. Utiliza <code>.position-static</code>,
+      <code>.position-relative</code>, <code>.position-absolute</code>, <code>.position-fixed</code>, y
+      <code>.position-sticky</code>.
+    </p>
+
+    <div class="position-relative bg-light" style="height: 100px; width: 100%; border: 1px solid black;">
+      <div class="position-absolute top-0 start-50 translate-middle bg-danger text-white p-1">Posición absoluta</div>
+    </div>
+    <br>
+    <hr>
+
+    <h3>Redondeo</h3>
+    <p>Bootstrap incluye utilidades para ajustar los bordes redondeados de los elementos con clases como
+      <code>.rounded</code>, <code>.rounded-circle</code>, y <code>.rounded-pill</code>.
+    </p>
+
+    <div style="text-align: center;">
+      <img src="Imágenes/Carousel1.jpg" class="rounded mb-4" alt="Borde redondeado" style="width: 65vw;">
+      <img src="Imágenes/Carousel2.jpg" class="rounded-circle mb-4" alt="Círculo" style="width: 65vw;">
+      <img src="Imágenes/Carousel3.jpg" class="rounded-pill" alt="Píldora" style="width: 65vw;">
+    </div>
+    <br>
+    <hr>
+
+    <h3>Desbordamiento</h3>
+    <p>Controla el desbordamiento de elementos con <code>.overflow-auto</code>, <code>.overflow-hidden</code>,
+      <code>.overflow-visible</code>, y <code>.overflow-scroll</code>.
+    </p>
+
+    <div class="overflow-auto" style="height: 50px; border: 1px solid black;">
+      Este es un texto largo dentro de un contenedor con <code>overflow-auto</code>.
+    </div>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Pagination -->
+
+    <h2 id="pagination" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Pagination</h2>
+    <hr>
+    <p>La <b>paginación</b> en Bootstrap permite crear navegaciones por páginas de forma sencilla. Se utiliza
+      principalmente para dividir contenido grande en varias páginas más pequeñas.</p>
+
+    <h3>Estructura básica</h3>
+    <p>La paginación básica se crea utilizando la clase <code>.pagination</code>. Cada elemento de la lista dentro de la
+      paginación debe tener la clase <code>.page-item</code>, y los enlaces deben tener la clase
+      <code>.page-link</code>.
+    </p>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+    <br>
+    <hr>
+
+    <h3>Tamaños de paginación</h3>
+    <p>Bootstrap permite ajustar el tamaño de la paginación utilizando las clases <code>.pagination-lg</code> y
+      <code>.pagination-sm</code> para tamaños grandes y pequeños, respectivamente.
+    </p>
+
+    <p>Tamaño grande:</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+    <p>Tamaño pequeño:</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+    <br>
+    <hr>
+
+    <h3>Paginación deshabilitada y activa</h3>
+    <p>Para deshabilitar o resaltar un elemento de la paginación, utiliza las clases <code>.disabled</code> y
+      <code>.active</code>, respectivamente.
+    </p>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item active"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+    <br>
+    <hr>
+
+    <h3>Paginación alineada</h3>
+    <p>La paginación puede alinearse utilizando las clases de utilidad de alineación como
+      <code>.justify-content-start</code>, <code>.justify-content-center</code>, y <code>.justify-content-end</code>.
+    </p>
+
+    <p>Alineada al centro:</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+    <p>Alineada a la derecha:</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+      </ul>
+    </nav>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Popover -->
+
+    <h2 id="popover" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Popover</h2>
+    <hr>
+    <p>Un <b>Popover</b> es un componente que muestra contenido adicional cuando el usuario interactúa con un elemento,
+      generalmente al hacer clic o pasar el cursor por encima de un botón o enlace. A diferencia de los
+      <code>tooltips</code>, los popovers pueden contener texto y otros elementos como encabezados, botones, y listas.
+    </p>
+
+    <h3>Ejemplo básico</h3>
+    <p>Para crear un popover básico, necesitamos añadir el atributo <code>data-bs-toggle="popover"</code> al elemento de
+      activación y luego usar el atributo <code>title</code> y <code>data-bs-content</code> para definir el contenido
+      del popover.</p>
+
+    <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-trigger="focus"
+      title="Título del Popover" data-bs-content="Contenido del Popover">Haz clic para ver el Popover</button>
+
+    <br>
+    <hr>
+
+    <h3>Activación de popover con JavaScript</h3>
+    <p>También podemos inicializar los popovers utilizando JavaScript. Para hacer esto, necesitamos usar el método
+      <code>Popover</code> de Bootstrap.
+    </p>
+
+    <button type="button" class="btn btn-primary" id="popoverButton">Haz clic para ver el Popover</button>
+
+    <br>
+    <hr>
+
+    <h3>Popover con varias configuraciones</h3>
+    <p>Los popovers tienen varias configuraciones que se pueden personalizar:</p>
+    <ul>
+      <li><code>placement</code>: Define la posición del popover. Puede ser <code>top</code>, <code>bottom</code>,
+        <code>left</code>, o <code>right</code>.
+      </li>
+      <li><code>trigger</code>: Define el tipo de activación. Los valores comunes son <code>click</code>,
+        <code>hover</code>, y <code>focus</code>.
+      </li>
+    </ul>
+    <p>Ejemplo con personalización:</p>
+    <button type="button" class="btn btn-warning" data-bs-toggle="popover" data-bs-trigger="focus"
+      title="Popover en la parte superior" data-bs-content="Este es un popover personalizado" data-bs-placement="top"
+      data-bs-trigger="hover">Popover en la
+      parte superior (hover)</button>
+
+    <script>
+      var popoverTrigger = document.getElementById('popoverButton');
+      var popover = new bootstrap.Popover(popoverTrigger, {
+        title: 'Título del Popover',
+        content: 'Contenido del Popover utilizando JavaScript'
+      });
+
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+      });
+    </script>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Floating Labels -->
+
+    <h2 id="floating-labels" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Floating Labels</h2>
+    <hr>
+    <p><b>Floating Labels</b> son etiquetas que flotan sobre los campos de formulario, lo que mejora la experiencia del
+      usuario al mostrar el texto de la etiqueta dentro del campo hasta que el usuario interactúa con el campo. Luego,
+      la etiqueta flota hacia arriba, dejando el espacio disponible para el texto ingresado.</p>
+
+    <h3>Ejemplo básico de Floating Label</h3>
+    <p>Para usar las etiquetas flotantes en los formularios, debes agregar las clases <code>.form-floating</code> al
+      contenedor del campo de formulario, y la etiqueta <code>&lt;label&gt;</code> debe tener el atributo
+      <code>for</code> que coincide con el <code>id</code> del campo de entrada.
+    </p>
+
+    <div class="mb-3 form-floating">
+      <input type="text" class="form-control" id="name" placeholder="Nombre">
+      <label for="name">Nombre</label>
+    </div>
+
+    <br>
+    <hr>
+
+    <h3>Floating Labels en un formulario con múltiples campos</h3>
+    <p>Se puede utilizar esta funcionalidad en varios campos dentro de un formulario para crear una interfaz más limpia
+      y moderna.</p>
+
+    <form>
+      <div class="mb-3 form-floating">
+        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+        <label for="email">Correo Electrónico</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+        <label for="password">Contraseña</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+    <br>
+    <hr>
+
+    <h3>Floating Labels con validación</h3>
+    <p>Las etiquetas flotantes también se pueden usar con la validación de formularios. Puedes agregar clases de
+      validación como <code>.is-valid</code> o <code>.is-invalid</code> a los campos de entrada.</p>
+    <form>
+      <div class="mb-3 form-floating">
+        <input type="text" class="form-control is-invalid" id="username" placeholder="Usuario" required>
+        <label for="username">Nombre de Usuario</label>
+        <div class="invalid-feedback">
+          Por favor, ingrese un nombre de usuario válido.
+        </div>
+      </div>
+      <div class="mb-3 form-floating">
+        <input type="password" class="form-control is-valid" id="userpassword" placeholder="Contraseña" required>
+        <label for="userpassword">Contraseña</label>
+        <div class="valid-feedback">
+          ¡Válido!
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Checkboxes and Radio buttons -->
+
+    <h2 id="checkbox-radio" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Checkboxes y Radio Buttons</h2>
+    <hr>
+    <p><b>Checkboxes</b> y <b>Radio Buttons</b> son elementos de formulario utilizados para seleccionar opciones. Los
+      checkboxes permiten seleccionar varias opciones, mientras que los radio buttons permiten seleccionar solo una
+      opción entre varias.</p>
+
+    <p>Los <b>Checkboxes</b> se utilizan cuando el usuario puede seleccionar más de una opción. Para implementar un
+      checkbox, simplemente utilizamos el elemento <code>&lt;input type="checkbox"&gt;</code>.</p>
+    <form>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="" id="check1">
+        <label class="form-check-label" for="check1">
+          Opción 1
+        </label>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="" id="check2">
+        <label class="form-check-label" for="check2">
+          Opción 2
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="check3" disabled>
+        <label class="form-check-label" for="check3">
+          Opción 3 (deshabilitada)
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+
+    <br>
+    <hr>
+
+    <p>Los <b>Radio Buttons</b> se utilizan cuando el usuario solo puede seleccionar una opción de varias disponibles.
+      Para implementar un radio button, utilizamos el elemento <code>&lt;input type="radio"&gt;</code>.</p>
+    <form>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" name="options" id="radio1" value="1">
+        <label class="form-check-label" for="radio1">
+          Opción 1
+        </label>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" name="options" id="radio2" value="2">
+        <label class="form-check-label" for="radio2">
+          Opción 2
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="options" id="radio3" value="3" disabled>
+        <label class="form-check-label" for="radio3">
+          Opción 3 (deshabilitada)
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+
+    <br>
+    <hr>
+
+    <h3>Checkboxes y Radio Buttons con validación</h3>
+    <p>Se pueden aplicar clases de validación como <code>.is-invalid</code> o <code>.is-valid</code> a los checkboxes y
+      radio buttons para mostrar el estado de validación.</p>
+    <form>
+      <div class="form-check mb-2">
+        <input class="form-check-input is-invalid" type="checkbox" value="" id="check4" required>
+        <label class="form-check-label" for="check4">
+          Opción 1
+        </label>
+        <div class="invalid-feedback">
+          Debes seleccionar al menos una opción.
+        </div>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input is-valid" type="radio" name="radioOptions" id="radio4" value="1" required>
+        <label class="form-check-label" for="radio4">
+          Opción A
+        </label>
+        <div class="valid-feedback">
+          Opción seleccionada correctamente.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+
+    <hr style="margin-left: -30%; margin-right: -23%; margin-top: 90px;">
+
+    <!-- Jumbotron -->
+
+    <h2 id="jumbotron" style="opacity: 0;">.</h2>
+    <br>
+    <h2>Jumbotron</h2>
+    <hr>
+    <p>En Bootstrap 5, el componente Jumbotron ha sido descontinuado. Sin embargo, puedes crear un efecto similar usando
+      utilidades de clases, como <code>mt-4</code>, <code>p-5</code>, <code>bg-primary</code>, <code>text-white</code>,
+      y <code>rounded</code>.</p>
+
+
+    <h3>Ejemplo de Jumbotron en Bootstrap 5</h3>
+    <p>Este es un ejemplo de un Jumbotron utilizando las clases de utilidad de Bootstrap 5:</p>
+
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+      <h1 class="display-4">Bienvenido a nuestro sitio web</h1>
+      <p class="lead">Aquí puedes encontrar información importante que destaca, junto con algunos botones de acción.</p>
+      <hr class="my-4">
+      <p>Hacemos uso de Bootstrap 5 para una interfaz rápida y responsiva.</p>
+      <a class="btn btn-light btn-lg" href="javascript:void(0)" role="button">Explorar más</a>
+    </div>
+
+    <br>
+    <hr>
+
+    <h3>Explicación del código:</h3>
+    <ul>
+      <li><code>mt-4</code>: Añade un margen superior de 4 unidades, separando el Jumbotron de lo que esté por encima de
+        él.</li>
+      <li><code>p-5</code>: Aplica un padding de 5 unidades alrededor del contenido dentro del Jumbotron, dándole un
+        espacio adecuado.</li>
+      <li><code>bg-primary</code>: Establece el fondo del Jumbotron en el color principal de Bootstrap (azul en este
+        caso), pero puede cambiarse a otros colores como <code>bg-secondary</code>, <code>bg-danger</code>, etc.</li>
+      <li><code>text-white</code>: Establece el color del texto en blanco para que contraste adecuadamente con el fondo.
+      </li>
+      <li><code>rounded</code>: Aplica bordes redondeados al Jumbotron para un aspecto más moderno y estilizado.</li>
+    </ul>
+
+    <p>Dentro del contenedor, también se incluye:</p>
+    <ul>
+      <li><code>display-4</code>: Un estilo de encabezado grande que resalta el título del Jumbotron.</li>
+      <li><code>lead</code>: Una clase de texto que aplica un estilo más ligero y destacado al párrafo de descripción.
+      </li>
+      <li><code>btn btn-light btn-lg</code>: Un botón de gran tamaño con fondo claro, que permite a los usuarios
+        explorar más contenido.</li>
+    </ul>
+    <br><br><br>
+
+  </div>
+
+</body>
+
+<footer class="bg-dark text-white text-center py-4" style="margin-bottom: -30px;">
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Daniel Esteban. Todos los derechos reservados.</p>
+    <p class="mb-0">
+      <a href="javascript:void(0)" class="text-white">Términos de uso</a> |
+      <a href="javascript:void(0)" class="text-white">Política de privacidad</a> |
+      <a href="javascript:void(0)" class="text-white">Contacto</a>
+    </p>
+  </div>
+</footer>
+
+</html>
