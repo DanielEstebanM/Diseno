@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced</title>
+    <link rel="stylesheet" href="PropiedadesCSS.css">
+    <link rel="shortcut icon" href="imagenes/css-logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav>
+        <div>
+            <img src="imagenes/menu.png" alt="Imagen de menú" id="menu" onclick="abrirMenu()">
+        </div>
+        <h1 class="h1_titulo">CSS ADVANCED</h1>
+    </nav>
+
+    <!-- Menú lateral -->
+    <div class="menu" id="menu_lateral">
+        <div class="div_titulo_menulateral">
+            <h2 id="titulo">CSS Advanced</h2>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#1" id="enlaces">CSS Rounded Corners</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#2" id="enlaces">CSS Border Images</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#3" id="enlaces">CSS Backgrounds</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#4" id="enlaces">CSS Colors</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#5" id="enlaces">CSS Color Keywords</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#6" id="enlaces">CSS Gradients</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#7" id="enlaces">CSS Shadows</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#8" id="enlaces">CSS Text Effects</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#9" id="enlaces">CSS Web Fonts</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#10" id="enlaces">CSS Buttons</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#11" id="enlaces">CSS Multiple Columns</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#12" id="enlaces">CSS User Interface</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="#13" id="enlaces">CSS Box Sizing</a>
+        </div>
+    </div>
+
+    <script>
+
+        let rotado = false;
+
+        function abrirMenu() {
+            let menu = document.getElementById("menu");
+            let menuLateral = document.getElementById("menu_lateral");
+            let titulo = document.getElementById("titulo");
+            let enlaces = document.querySelectorAll("#menu_lateral a");
+
+            if (!rotado) {
+                menu.style.transform = "rotate(90deg)";
+                menuLateral.style.width = "275px";
+                titulo.style.transform = "translateX(0)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(0)";
+                });
+            } else {
+                menu.style.transform = "rotate(0deg)";
+                menuLateral.style.width = "0";
+
+                titulo.style.transform = "translateX(-300px)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(-300px)";
+                });
+            }
+            rotado = !rotado;
+        }
+
+        function redirigirEnlace() {
+            abrirMenu();
+        }
+
+    </script>
+
+    <div class="div_portada">
+        <img class="img_portada" src="imagenes/Animation.gif" alt="Imagen CSS portada">
+    </div>
+
+    <div class="propiedades">
+        <div class="border-radius_titulo">
+            <h1 id="1">CSS Rounded Corners</h1>
+            <p>Con la propiedad CSS <i style="color: green;">border-radius</i>, puedes darle a cualquier elemento
+                esquinas redondeadas.</p>
+        </div>
+        <h2>Propiedad CSS border-radius</h2>
+        <p class="info">La propiedad CSS <i>border-radius</i> define el radio de las esquinas de un elemento.</p>
+        <p class="info">A continuación se muestran tres ejemplos:</p>
+        <p class="info">1. Esquinas redondeadas para un elemento con un color de fondo especificado:</p>
+        <div class="border-radius_ejemplo1">
+            <p>¡Esquinas redondeadas!</p>
+        </div>
+        <p class="info">2. Esquinas redondeadas para un elemento con borde:</p>
+        <div class="border-radius_ejemplo2">
+            <p>¡Esquinas redondeadas!</p>
+        </div>
+        <p class="info">3. Esquinas redondeadas para un elemento con una imagen de fondo:</p>
+        <div class="border-radius_ejemplo3">
+            <p>¡Esquinas redondeadas!</p>
+        </div>
+
+        <!-- ----------------------------------- -->
+        <div class="div_propiedades_cambiocolorfondo1">
+            <div class="border-image_titulo">
+                <h1 id="2">CSS Border Images</h1>
+                <p>Con la propiedad CSS <i style="color: green;">border-image</i>, puedes configurar una imagen para que
+                    se utilice como borde alrededor de un elemento.</p>
+            </div>
+            <h2>Propiedad CSS border-image</h2>
+            <p class="info">La propiedad CSS <i>border-image</i> le permite especificar una imagen que se utilizará en
+                lugar del borde normal alrededor de un elemento.</p>
+            <p class="info">La propiedad tiene tres partes:</p>
+            <ol>
+                <li>La imagen que se utilizará como borde</li>
+                <li>Dónde cortar la imagen</li>
+                <li>Definir si las secciones intermedias deben repetirse o estirarse</li>
+            </ol>
+            <p class="info">La propiedad <i>border-image</i> toma una imagen y la divide en nueve secciones, como un
+                tablero de tres en raya. Luego, coloca las esquinas en las esquinas y las secciones del medio se repiten
+                o se estiran según lo especifique.</p>
+            <p class="info">Aquí, las secciones centrales de la imagen se repiten para crear el borde:</p>
+            <div class="border-image_ejemplo1">
+                <p>border-image: url(imagen.png) 30 round</p>
+            </div>
+            <p class="info">Aquí, las secciones centrales de la imagen se estiran para crear el borde:</p>
+            <div class="border-image_ejemplo2">
+                <p>border-image: url(imagen.png) 30 strech</p>
+            </div>
+            <p class="info">Los diferentes valores de corte cambian por completo el aspecto del borde:</p>
+            <p class="info">Ejemplo 1:</p>
+            <div class="border-image_ejemplo3">
+                <p>border-image: url(imagen.png) 50 round</p>
+            </div>
+            <p class="info">Los diferentes valores de corte cambian por completo el aspecto del borde:</p>
+            <p class="info">Ejemplo 2:</p>
+            <div class="border-image_ejemplo4">
+                <p>border-image: url(imagen.png) 20% round</p>
+            </div>
+            <p class="info">Los diferentes valores de corte cambian por completo el aspecto del borde:</p>
+            <p class="info">Ejemplo 3:</p>
+            <div class="border-image_ejemplo5">
+                <p>border-image: url(imagen.png) 30% round</p>
+            </div>
+        </div>
+
+        <!-- ----------------------------------- -->
+        <div class="div_propiedades_cambiocolorfondo2">
+            <div class="background_titulo">
+                <h1 id="3">CSS Multiple Backgrounds</h1>
+                <p>En este capítulo aprenderá cómo agregar varias imágenes de fondo a un elemento.</p>
+                <p>También aprenderá sobre las siguientes propiedades:</p>
+                <ul>
+                    <li>background-size</li>
+                    <li>background-origin</li>
+                    <li>background-clip</li>
+                </ul>
+            </div>
+            <p class="info">CSS le permite agregar múltiples imágenes de fondo para un elemento, a través de la
+                propiedad background-image.</p>
+            <p class="info">Las diferentes imágenes de fondo están separadas por comas y las imágenes se apilan una
+                encima de otra, donde la primera imagen es la más cercana al espectador.</p>
+            <h2>Tamaño (background-size)</h2>
+            <p class="info">La propiedad <i>background-size</i> le permite especificar el tamaño de las imágenes de
+                fondo.</p>
+            <p class="info">El tamaño se puede especificar en longitudes, porcentajes o utilizando una de las dos
+                palabras clave: <i>content</i> o <i>cover</i>.</p>
+            <p class="info">El siguiente ejemplo cambia el tamaño de una imagen de fondo a un tamaño mucho más pequeño
+                que la imagen original (usando píxeles):</p>
+            <div class="background_ejemplo1">
+                <p>background: url(img_fondo.jpg);</p>
+                <p>background-size: 100px 80px;</p>
+                <p>background-repeat: no-repeat;</p>
+            </div>
+            <h2>Propiedad CSS background-origin</h2>
+            <p class="info">La propiedad CSS <i>background-origin</i> especifica dónde se posiciona la imagen de fondo.
+            </p>
+            <p class="info">La propiedad toma tres valores diferentes:</p>
+            <ol>
+                <li>border-box: la imagen de fondo comienza desde la esquina superior izquierda del borde</li>
+                <li>padding-box - (predeterminado) la imagen de fondo comienza desde la esquina superior izquierda del
+                    borde de relleno</li>
+                <li>content-box: la imagen de fondo comienza desde la esquina superior izquierda del contenido</li>
+            </ol>
+            <div class="div_ejemplos_origin">
+                <div class="background_ejemplo2">
+                    <p>background: url(img_fondo.jpg);</p>
+                    <p>background-repeat: no-repeat;</p>
+                    <p>background-origin: padding-box;</p>
+                </div>
+                <div class="background_ejemplo3">
+                    <p>background: url(img_fondo.jpg);</p>
+                    <p>background-repeat: no-repeat;</p>
+                    <p>background-origin: border-box;</p>
+                </div>
+                <div class="background_ejemplo4">
+                    <p>background: url(img_fondo.jpg);</p>
+                    <p>background-repeat: no-repeat;</p>
+                    <p>background-origin: content-box;</p>
+                </div>
+            </div>
+            <h2>Propiedad CSS background-clip</h2>
+            <p class="info">La propiedad CSS <i>background-clip</i> especifica el área de pintura del fondo.</p>
+            <p class="info">La propiedad toma tres valores diferentes:</p>
+            <ol>
+                <li>border-box - (predeterminado) el fondo se pinta hasta el borde exterior del borde</li>
+                <li>padding-box: el fondo se pinta hasta el borde exterior del relleno.</li>
+                <li>content-box: el fondo se pinta dentro del cuadro de contenido</li>
+            </ol>
+            <div class="div_ejemplos_clip">
+                <div class="background_ejemplo5">
+                    <p>border: 10px dotted black;</p>
+                    <p>padding: 35px</p>
+                    <p>background: yellow;</p>
+                    <p>background-clip: border-box;</p>
+                </div>
+                <div class="background_ejemplo6">
+                    <p>border: 10px dotted black;</p>
+                    <p>padding: 35px</p>
+                    <p>background: yellow;</p>
+                    <p>background-clip: padding-box;</p>
+                </div>
+                <div class="background_ejemplo7">
+                    <p>border: 10px dotted black;</p>
+                    <p>padding: 35px</p>
+                    <p>background: yellow;</p>
+                    <p>background-clip: content-box;</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo3">
+            <div class="colores_titulo">
+                <h1 id="4">CSS Colors</h1>
+                <p>En esta sección veremos los siguientes valores:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Colores RGBA</li>
+                    <li>Colores HSL</li>
+                    <li>Colores HSLA</li>
+                    <li style="margin-bottom: 20px;">Opacidad</li>
+                </ul>
+            </div>
+            <h2 id="RGB">Colores RGBA</h2>
+            <p class="info">Los valores de color RGBA son una extensión de los valores de color RGB con un canal alfa,
+                que especifica la opacidad de un color.</p>
+            <p class="info">Un valor de color RGBA se especifica con: rgba(rojo, verde, azul, alfa). El parámetro alfa
+                es un número entre 0,0 (totalmente transparente) y 1,0 (totalmente opaco).</p>
+            <div class="colores_ejemplo1">
+                <p>rgba(255, 0, 0, 0.2);</p>
+            </div>
+            <div class="colores_ejemplo2">
+                <p>rgba(255, 0, 0, 0.4);</p>
+            </div>
+            <div class="colores_ejemplo3">
+                <p>rgba(255, 0, 0, 0.6);</p>
+            </div>
+            <div class="colores_ejemplo4">
+                <p>rgba(255, 0, 0, 0.8);</p>
+            </div>
+            <h2>Colores HSL</h2>
+            <p class="info">HSL significa Tono, Saturación y Luminosidad.</p>
+            <p class="info">Un valor de color HSL se especifica con: hsl(tono, saturación, luminosidad).</p>
+            <ul>
+                <li>El tono es un grado en la rueda de color (de 0 a 360):
+                    <ol class="ol_colores">
+                        <li>0 (o 360) es rojo</li>
+                        <li>120 es verde</li>
+                        <li>240 es azul</li>
+                    </ol>
+                </li>
+                <li>La saturación es un valor porcentual: 100% es el color completo.</li>
+                <li>La luminosidad también es un porcentaje: 0% es oscuro (negro) y 100% es blanco.</li>
+            </ul>
+            <div class="colores_ejemplo5" style="margin-top: 20px;">
+                <p>hsl(133, 50%, 30%);</p>
+            </div>
+            <div class="colores_ejemplo6">
+                <p>hsl(133, 50%, 50%);</p>
+            </div>
+            <div class="colores_ejemplo7">
+                <p>hsl(133, 50%, 70%);</p>
+            </div>
+            <div class="colores_ejemplo8">
+                <p>hsl(133, 50%, 90%);</p>
+            </div>
+            <h2>Colores HSLA</h2>
+            <p class="info">Los valores de color HSLA son una extensión de los valores de color HSL con un canal alfa,
+                que especifica la opacidad de un color.</p>
+            <p class="info">Un valor de color HSLA se especifica con: hsla(tono, saturación, luminosidad, alfa), donde
+                el parámetro alfa define la opacidad. El parámetro alfa es un número entre 0,0 (totalmente transparente)
+                y 1,0 (totalmente opaco).</p>
+            <div class="colores_ejemplo9">
+                <p>hsla(133, 50%, 30%, 0.5);</p>
+            </div>
+            <div class="colores_ejemplo10">
+                <p>hsla(133, 50%, 50%, 0.5);</p>
+            </div>
+            <div class="colores_ejemplo11">
+                <p>hsla(133, 50%, 70%, 0.5);</p>
+            </div>
+            <div class="colores_ejemplo12">
+                <p>hsla(133, 50%, 90%, 0.5);</p>
+            </div>
+            <h2>Opacidad</h2>
+            <p class="info">La propiedad CSS <i>opacity</i> establece la opacidad de todo el elemento (tanto el color de
+                fondo como el texto serán opacos/transparentes).</p>
+            <p class="info">El valor de la propiedad debe ser un número entre 0,0 (totalmente transparente) y 1,0
+                (totalmente opaco).</p>
+            <div class="colores_ejemplo13">
+                <p>rgb(3, 170, 0);</p>
+                <p>opacity: 0.2;</p>
+            </div>
+            <div class="colores_ejemplo14">
+                <p>rgb(3, 170, 0);</p>
+                <p>opacity: 0.4;</p>
+            </div>
+            <div class="colores_ejemplo15">
+                <p>rgb(3, 170, 0);</p>
+                <p>opacity: 0.6;</p>
+            </div>
+            <div class="colores_ejemplo16">
+                <p>rgb(3, 170, 0);</p>
+                <p>opacity: 0.8;</p>
+            </div>
+            <p class="info" style="padding-top: 20px;">¡Tenga en cuenta que el texto de arriba también será
+                transparente/opaco!</p>
+        </div>
+        <div class="div_propiedades_cambiocolorfondo4">
+            <div class="keywords_titulo">
+                <h1 id="5">CSS Color Keywords</h1>
+                <p>Esta parte explicará las palabras clave <span><i>transparent</i></span>,
+                    <span><i>currentcolor</i></span>, e
+                    <span><i>inherit</i></span>.
+                </p>
+            </div>
+            <h2>Transparent</h2>
+            <p class="info">La palabra clave <i>transparent</i> se utiliza para hacer que un color sea transparente.
+                Esto se suele utilizar para hacer que el color de fondo de un elemento sea transparente.</p>
+            <div class="keywords_ejemplo1">
+                <p>background-color: transparent;</p>
+            </div>
+            <p><b>Nota:</b> La palabra clave <i>transparent</i> es equivalente a rgba(0,0,0,0). Los valores de color
+                RGBA son una extensión de los valores de color RGB con un canal alfa, que especifica la opacidad de un
+                color. Obtenga más información en nuestro capítulo <a href="#RGB">CSS RGB</a> y en nuestro capítulo <a
+                    href="#4">Colores CSS</a>.</p>
+            <h2>Currentcolor</h2>
+            <p class="info">La palabra clave <i>currentcolor</i> es como una variable que contiene el valor actual de la
+                propiedad de color de un elemento.</p>
+            <p class="info">Esta palabra clave puede ser útil si desea que un color específico sea consistente en un
+                elemento o una página.</p>
+            <div class="keywords_ejemplo2">
+                <p>color: rgb(88, 140, 237);</p>
+                <p>border: 10px solid currentcolor;</p>
+            </div>
+            <h2>Inherit</h2>
+            <p class="info">La palabra clave <i>inherit</i> especifica que una propiedad debe heredar su valor de su
+                elemento padre.</p>
+            <p class="info">Esta palabra clave se puede utilizar para cualquier propiedad CSS y en cualquier elemento
+                HTML.</p>
+            <div class="keywords_ejemplo3">
+                <p>border: inherit;</p>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo5">
+            <div class="gradiente_titulo">
+                <h1 id="6">CSS Gradients</h1>
+                <p>Los degradados CSS le permiten mostrar transiciones suaves entre dos o más colores específicos.</p>
+                <p>CSS define tres tipos de degradados:</p>
+                <ul>
+                    <li>Degradados lineales (hacia abajo/arriba/izquierda/derecha/ diagonalmente)</li>
+                    <li>Gradientes radiales (definidos por su centro)</li>
+                    <li>Gradientes cónicos (rotados alrededor de un punto central)</li>
+                </ul>
+            </div>
+            <h2>Degradados lineales</h2>
+            <p class="info">Para crear un degradado lineal, debes definir al menos dos niveles de color. Los niveles de
+                color son los colores entre los que quieres crear transiciones suaves. También puedes establecer un
+                punto de inicio y una dirección (o un ángulo) junto con el efecto de degradado.</p>
+            <h3>Sintaxis</h3>
+            <div class="sintaxis">
+                <p>background-image: linear-gradient(direction, color-stop1, color-stop2, ...);</p>
+            </div>
+            <h3>Dirección: de arriba a abajo (este es el valor predeterminado)</h3>
+            <p class="info">El siguiente ejemplo muestra un degradado lineal que comienza en la parte superior. Comienza
+                en rojo y pasa al amarillo:</p>
+            <div class="gradiente_ejemplo1">
+                <p>background-image: linear-gradient(red, yellow);</p>
+            </div>
+            <h3>Dirección - De izquierda a derecha</h3>
+            <p class="info">El siguiente ejemplo muestra un degradado lineal que comienza desde la izquierda. Comienza
+                en rojo y pasa al amarillo:</p>
+            <div class="gradiente_ejemplo2">
+                <p>background-image: linear-gradient(to right, red, yellow);</p>
+            </div>
+            <h3>Dirección - Diagonal</h3>
+            <p class="info">Puede realizar un degradado en diagonal especificando las posiciones iniciales horizontales
+                y verticales.</p>
+            <p class="info">El siguiente ejemplo muestra un degradado lineal que comienza en la parte superior izquierda
+                (y continúa hasta la parte inferior derecha). Comienza en rojo y pasa a amarillo:</p>
+            <div class="gradiente_ejemplo3">
+                <p>background-image: linear-gradient(to bottom right, red, yellow);</p>
+            </div>
+            <h3>Usando ángulos</h3>
+            <p class="info">Si desea tener más control sobre la dirección del gradiente, puede definir un ángulo en
+                lugar de las direcciones predefinidas (hacia abajo, hacia arriba, hacia la derecha, hacia la izquierda,
+                hacia abajo a la derecha, etc.). Un valor de 0 grados equivale a "hacia arriba". Un valor de 90 grados
+                equivale a "hacia la derecha". Un valor de 180 grados equivale a "hacia abajo".</p>
+            <h3>Sintaxis</h3>
+            <div class="sintaxis">
+                <p>background-image: linear-gradient(angle, color-stop1, color-stop2);</p>
+            </div>
+            <p class="info">El siguiente ejemplo muestra cómo utilizar ángulos en gradientes lineales:</p>
+            <div class="gradiente_ejemplo4">
+                <p>background-image: linear-gradient(180deg, red, yellow);</p>
+            </div>
+            <h3>Uso de múltiples paradas de color</h3>
+            <p class="info">El siguiente ejemplo muestra un degradado lineal (de arriba a abajo) con múltiples paradas
+                de color:</p>
+            <div class="gradiente_ejemplo5">
+                <p>background-image: linear-gradient(red, yellow, green);</p>
+            </div>
+            <p class="info">El siguiente ejemplo muestra cómo crear un degradado lineal (de izquierda a derecha) con el
+                color del arco iris y algo de texto:</p>
+            <div class="gradiente_ejemplo6">
+                <p>background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);</p>
+            </div>
+            <h3>Usando Transparencia</h3>
+            <p class="info">Los degradados CSS también admiten transparencia, que puede utilizarse para crear efectos de
+                desvanecimiento.</p>
+            <p class="info">Para agregar transparencia, utilizamos la función rgba() para definir los niveles de color.
+                El último parámetro de la función rgba() puede ser un valor de 0 a 1 y define la transparencia del
+                color: 0 indica transparencia total, 1 indica color total (sin transparencia).</p>
+            <p class="info">El siguiente ejemplo muestra un degradado lineal que comienza desde la izquierda. Comienza
+                totalmente transparente y pasa a ser completamente rojo: </p>
+            <div class="gradiente_ejemplo7">
+                <p>background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));</p>
+            </div>
+            <h3>Repetición de un gradiente lineal</h3>
+            <p class="info">La función <i>repeating-linear-gradient()</i> se utiliza para repetir gradientes lineales:
+            </p>
+            <div class="gradiente_ejemplo8">
+                <p></p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-image: repeating-linear-gradient(red, yellow 10%, green 20%);</p>
+            </div>
+            <h2>Degradados radiales</h2>
+            <p class="info">Un gradiente radial se define por su centro.</p>
+            <p class="info">Para crear un degradado radial también debes definir al menos dos paradas de color.</p>
+            <h3>Sintaxis</h3>
+            <div class="sintaxis">
+                <p>background-image: radial-gradient(shape size at position, start-color, ..., last-color);</p>
+            </div>
+            <p class="info">De forma predeterminada, la forma es elipse, el tamaño es la esquina más alejada y la
+                posición es el centro.</p>
+            <h3>Degradado radial: paradas de color espaciadas uniformemente (esta opción es predeterminada)</h3>
+            <p class="info">El siguiente ejemplo muestra un degradado radial con paradas de color espaciadas
+                uniformemente:</p>
+            <div class="gradiente_ejemplo9">
+                <p>background-image: radial-gradient(red, yellow, green);</p>
+            </div>
+            <h3>Degradado radial: paradas de color con diferentes espacios</h3>
+            <p class="info">El siguiente ejemplo muestra un degradado radial con paradas de color espaciadas de forma
+                diferente:</p>
+            <div class="gradiente_ejemplo10">
+                <p>background-image: radial-gradient(red 5%, yellow 15%, green 60%);</p>
+            </div>
+            <h2>Gradientes cónicos</h2>
+            <p class="info">Un degradado cónico es un degradado con transiciones de color rotadas alrededor de un punto
+                central.</p>
+            <p class="info">Para crear un degradado cónico debes definir al menos dos colores.</p>
+            <h3>Sintaxis</h3>
+            <div class="sintaxis">
+                <p>background-image: conic-gradient([from angle] [at position,] color [degree], color [degree], ...);
+                </p>
+            </div>
+            <p class="info">De forma predeterminada, el ángulo es 0 grados y la posición es el centro.</p>
+            <p class="info">Si no se especifica ningún <i>grado</i> , los colores se distribuirán uniformemente
+                alrededor del punto central.</p>
+            <h3>Gradiente cónico: tres colores</h3>
+            <p class="info">El siguiente ejemplo muestra un gradiente cónico con tres colores:</p>
+            <div class="gradiente_ejemplo11">
+                <p>background-image: conic-gradient(red, yellow, green);</p>
+            </div>
+            <h3>Gradiente cónico: cinco colores</h3>
+            <p class="info">El siguiente ejemplo muestra un gradiente cónico con cinco colores:</p>
+            <div class="gradiente_ejemplo12">
+                <p>background-image: conic-gradient(red, yellow, green, blue, black);</p>
+            </div>
+            <h3>Gradiente cónico: tres colores y grados</h3>
+            <p class="info">El siguiente ejemplo muestra un gradiente cónico con tres colores y un grado para cada
+                color:</p>
+            <div class="gradiente_ejemplo13">
+                <p>background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg);</p>
+            </div>
+            <h3>Crear gráficos circulares</h3>
+            <p class="info">Solo agréguelo <i>border-radius: 50%</i> para hacer que el gradiente cónico parezca un
+                pastel:</p>
+            <div class="gradiente_ejemplo14">
+                <p></p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-image: conic-gradient(red, yellow, green, blue, black);</p>
+                <p class="p_codigo">border-radius: 50%;</p>
+            </div>
+            <p class="info">Aquí hay otro gráfico circular con grados definidos para todos los colores:</p>
+            <div class="gradiente_ejemplo15">
+                <p></p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg,
+                    green 180deg, green 270deg, blue 270deg);</p>
+                <p class="p_codigo">border-radius: 50%;</p>
+            </div>
+            <h3>Repetición de un gradiente cónico</h3>
+            <p class="info">La función <i>repeating-conic-gradient()</i> se utiliza para repetir gradientes cónicos:</p>
+            <div class="gradiente_ejemplo16">
+                <p></p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-image: repeating-conic-gradient(red 10%, yellow 20%);</p>
+                <p class="p_codigo">border-radius: 50%;</p>
+            </div>
+            <p class="info">Aquí se muestra un gradiente cónico repetitivo con inicios y finales de color definidos:</p>
+            <div class="gradiente_ejemplo17">
+                <p></p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-image: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue
+                    20deg 30deg);</p>
+                <p class="p_codigo">border-radius: 50%;</p>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo6">
+            <div class="sombras_titulo">
+                <h1 id="7">CSS Shadow</h1>
+                <p class="info">Con CSS puedes agregar sombra al texto y a los elementos.</p>
+                <p class="info">En estos capítulos aprenderás sobre las siguientes propiedades:</p>
+                <ul>
+                    <li>text-shadow</li>
+                    <li>box-shadow</li>
+                </ul>
+            </div>
+            <h2>Sombra de texto (<i>text-shadow</i>)</h2>
+            <p class="info">La propiedad <i>text-shadow</i> aplica sombra al texto.</p>
+            <p class="info">En su uso más simple, solo especifica la sombra horizontal (2px) y la sombra vertical (2px),
+                pero también le puedes poner colores:</p>
+            <div class="sombras_ejemplo1">
+                <p>¡Efecto de sombra de texto!</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">text-shadow: 2px 2px red;</p>
+            </div>
+            <p class="info">Luego, agrega un efecto de desenfoque a la sombra:</p>
+            <div class="sombras_ejemplo2">
+                <p>¡Efecto de sombra de texto!</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">text-shadow: 2px 2px 5px red;</p>
+            </div>
+            <h3>Sombras múltiples</h3>
+            <p class="info">Para agregar más de una sombra al texto, puede agregar una lista de sombras separadas por
+                comas.</p>
+            <p class="info">El siguiente ejemplo muestra un texto blanco con sombras negras, rojo y rojo oscuro:</p>
+            <div class="sombras_ejemplo3">
+                <p>¡Efecto de sombra de texto!</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px rgb(148, 0, 0);</p>
+            </div>
+            <p class="info">También puedes usar la propiedad <i>text-shadow</i> para crear un borde simple alrededor de
+                algún texto (sin sombras):</p>
+            <div class="sombras_ejemplo4">
+                <p>¡Borde alrededor del texto!</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;</p>
+            </div>
+            <h2>Sombra de cuadro (<i>box-shadow</i>)</h2>
+            <p class="info">La propiedad <i>box-shadow</i> se utiliza para aplicar una o más sombras a un elemento.</p>
+            <h3>Especificar una sombra horizontal y una vertical</h3>
+            <p class="info">En su uso más simple, solo se especifica una sombra horizontal y una vertical. El color
+                predeterminado de la sombra es el color del texto actual, pero se le puede añadir color.</p>
+            <div class="sombras_ejemplo5">
+                <p>box-shadow: 5px 10px gray;</p>
+            </div>
+            <p class="info">Para añadir desenfoque a la sombra usamos el parámero <i>blur</i>. Cuanto mayor sea el
+                número, más borrosa será la sombra.</p>
+            <div class="sombras_ejemplo6">
+                <p>box-shadow: 10px 10px 5px gray;</p>
+            </div>
+            <h3>Agregar múltiples sombras</h3>
+            <p class="info">Un elemento también puede tener múltiples sombras:</p>
+            <div class="sombras_ejemplo7">
+                <p>box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;</p>
+            </div>
+            <h3 style="margin-top: 30px;">Tarjetas</h3>
+            <p class="info">También puedes utilizar la propiedad <i>box-shadow</i> para crear tarjetas con apariencia de
+                papel:</p>
+            <div class="sombras_ejemplo8">
+                <img src="imagenes/keywordEjemplo1.jpg" alt="Ejemplo tarjetas">
+                <div>
+                    <p>Tarjeta con <i>box-shadow</i></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo7">
+            <div class="efectostexto_titulo">
+                <h1 id="8">CSS Text Effects</h1>
+                <p class="info">En este capítulo aprenderá sobre las siguientes <span>propiedades:</span></p>
+                <ul>
+                    <li>text-overflow</li>
+                    <li>word-wrap</li>
+                    <li>word-break</li>
+                    <li>writing-mode</li>
+                </ul>
+            </div>
+            <h2>Desbordamiento de texto (<i>text-overflow</i>)</h2>
+            <p class="info">La propiedad <i>text-overflow</i> especifica cómo se debe señalar al usuario el
+                contenido desbordado que no se muestra.</p>
+            <p class="info">Se puede recortar:</p>
+            <div class="efectostexto_ejemplo1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quae, deleniti error magni, omnis
+                    accusamus fuga incidunt, autem illo similique facilis deserunt ipsum optio sequi adipisci cum
+                    porro! Esse, mollitia.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">overflow: hidden;</p>
+                <p class="p_codigo">text-overflow: clip;</p>
+            </div>
+            <p class="info">o puede representarse como puntos suspensivos (...):</p>
+            <p class="efectostexto_ejemplo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quae,
+                deleniti error magni, omnis accusamus fuga incidunt, autem illo similique facilis deserunt ipsum
+                optio sequi adipisci cum porro! Esse, mollitia.</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">overflow: hidden;</p>
+                <p class="p_codigo">text-overflow: ellipsis;</p>
+            </div>
+            <p class="info">Si cambiamos el valor del <i>overflow</i> a <i>visible</i> no se esconderá el texto
+                sobresaliente.</p>
+            <p class="info">Pon el cursor encima del texto para ver el cambio:</p>
+            <div class="efectostexto_ejemplo3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quae, deleniti error magni, omnis
+                    accusamus fuga incidunt ...</p>
+            </div>
+            <p class="efectostexto_ejemplo4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quae,
+                deleniti error magni, omnis accusamus fuga incidunt ...</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">overflow: visible;</p>
+            </div>
+            <h2>Ajuste de palabras (<i>word-wrap</i>)</h2>
+            <p class="info">La propiedad <i>word-wrap</i> permite que las palabras largas se puedan dividir y pasar a la
+                siguiente línea.</p>
+            <p class="info">Si una palabra es demasiado larga para caber dentro de un área, se expande hacia afuera:</p>
+            <div class="efectostexto_ejemplo5">
+                <p>Este párrafo contiene una palabra muy larga: thisisaveryveryveryveryverylongword. La palabra larga se
+                    dividirá y pasará a la siguiente línea.</p>
+            </div>
+            <p class="info">La propiedad <i>word-wrap</i> le permite forzar el ajuste del texto, incluso si eso
+                significa dividirlo en el medio de una palabra:</p>
+            <div class="efectostexto_ejemplo6">
+                <p>Este párrafo contiene una palabra muy larga: thisisaveryveryveryveryverylongword. La palabra larga se
+                    dividirá y pasará a la siguiente línea.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">word-wrap: break-word;</p>
+            </div>
+            <h2>División de palabras (<i>word-break</i>)</h2>
+            <p class="info">La propiedad <i>word-break</i> especifica reglas de salto de línea.</p>
+            <p class="info">El valor <i>keep-all</i> de esta propiedad hace que el texto no se rompa.</p>
+            <p class="efectostexto_ejemplo7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti omnis
+                error veritatis repudiandae consectetur voluptas atque dolorum fuga id odio numquam quaerat vel dolores
+                laudantium, officiis reprehenderit dolor libero nobis.</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">word-break: keep-all;</p>
+            </div>
+            <p class="info">El valor <i>break-all</i> de esta propiedad hace que el texto se rompa para que ocupe todo
+                el contenido.</p>
+            <p class="efectostexto_ejemplo8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti omnis
+                error veritatis repudiandae consectetur voluptas atque dolorum fuga id odio numquam quaerat vel dolores
+                laudantium, officiis reprehenderit dolor libero nobis.</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">word-break: break-all;</p>
+            </div>
+            <h2>Modo de escritura CSS (<i>writing-mode</i>)</h2>
+            <p class="info">La propiedad <i>writing-mode</i> especifica si las líneas de texto se disponen horizontal o
+                verticalmente.</p>
+            <p class="efectostexto_ejemplo9">Este texto es horizontal, mientras que esta <span>palabra</span> es
+                vertical.</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">writing-mode: vertical-rl;</p>
+                <p class="p_codigo" style="opacity: 60%;">/* Para ponerlo en horizontal (predeterminado) -->
+                    writing-mode: horizontal-tb; */</p>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo8">
+            <div class="fuentes_titulo">
+                <h1 id="9">CSS Web Fonts</h1>
+                <p class="info">Las fuentes web permiten a los diseñadores web utilizar fuentes que no están instaladas
+                    en la computadora del usuario.</p>
+                <p class="info">Cuando haya encontrado/comprado la fuente que desea utilizar, simplemente incluya el
+                    archivo de fuente en su servidor web y se descargará automáticamente para el usuario cuando sea
+                    necesario.</p>
+                <p class="info">Tus fuentes "propias" están definidas dentro de la regla <i
+                        style="text-shadow: 0px 0px 3px white;">@font-face</i>.</p>
+            </div>
+            <h2>Diferentes formatos de fuentes</h2>
+            <h3>Fuentes TrueType (TTF)</h3>
+            <p class="info">TrueType es un estándar de fuentes desarrollado a finales de la década de 1980 por Apple y
+                Microsoft. TrueType es el formato de fuente más común tanto para los sistemas operativos Mac OS como
+                para Microsoft Windows.</p>
+            <h3>El formato de fuente abierto para la Web (WOFF)</h3>
+            <p class="info">WOFF es un formato de fuente para uso en páginas web. Fue desarrollado en 2009 y ahora es
+                una recomendación del W3C. WOFF es esencialmente OpenType o TrueType con compresión y metadatos
+                adicionales. El objetivo es permitir la distribución de fuentes desde un servidor a un cliente a través
+                de una red con restricciones de ancho de banda.</p>
+            <h3>El formato de fuente abierto para la Web (WOFF 2.0)</h3>
+            <p class="info">Fuente TrueType/OpenType que proporciona una mejor compresión que WOFF 1.0.</p>
+            <h3>Fuentes/formas SVG</h3>
+            <p class="info">Las fuentes SVG permiten utilizar SVG como glifos al mostrar texto. La especificación SVG
+                1.1 define un módulo de fuentes que permite la creación de fuentes dentro de un documento SVG. También
+                se pueden aplicar CSS a documentos SVG y la regla @font-face se puede aplicar al texto en documentos
+                SVG.</p>
+            <h3>Fuentes OpenType integradas (EOT)</h3>
+            <p class="info">Las fuentes EOT son una forma compacta de fuentes OpenType diseñadas por Microsoft para su
+                uso como fuentes integradas en páginas web.</p>
+            <h2>Compatibilidad del navegador con formatos de fuente</h2>
+            <p class="info">Los números en la tabla especifican la primera versión del navegador que admite totalmente
+                el formato de
+                fuente.</p>
+            <table border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th>Font format</th>
+                        <th>IE</th>
+                        <th>Firefox</th>
+                        <th>Chrome</th>
+                        <th>Safari</th>
+                        <th>Opera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TTF/OTF</td>
+                        <td>9.0*</td>
+                        <td>4.0</td>
+                        <td>3.5</td>
+                        <td>3.1</td>
+                        <td>10.0</td>
+                    </tr>
+                    <tr>
+                        <td>WOFF</td>
+                        <td>9.0</td>
+                        <td>5.0</td>
+                        <td>3.6</td>
+                        <td>5.1</td>
+                        <td>11.1</td>
+                    </tr>
+                    <tr>
+                        <td>WOFF2</td>
+                        <td>14.0</td>
+                        <td>36.0</td>
+                        <td>39.0</td>
+                        <td>10.0</td>
+                        <td>26.0</td>
+                    </tr>
+                    <tr>
+                        <td>SVG</td>
+                        <td>Not supported</td>
+                        <td>Not supported</td>
+                        <td>Not supported</td>
+                        <td>3.2</td>
+                        <td>Not supported</td>
+                    </tr>
+                    <tr>
+                        <td>EOT</td>
+                        <td>6.0</td>
+                        <td>Not supported</td>
+                        <td>Not supported</td>
+                        <td>Not supported</td>
+                        <td>Not supported</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="info" style="margin-top: 5px;"><i>*IE: El formato de fuente solo funciona cuando está configurado
+                    como "instalable".</i></p>
+            <h2>Usando la fuente que quieras</h2>
+            <p class="info">En la regla <i>@font-face</i> primero defina un nombre para la fuente (por ejemplo,
+                <i>Relationship of Melodrame</i>) y luego apunte al archivo de fuente.
+            </p>
+            <p class="info">Para utilizar la fuente para un elemento HTML, haga referencia al nombre de la fuente
+                (<i>Relationship of Melodrame</i>) a través de la propiedad <i>font-family</i>:</p>
+            <p class="fuentes_ejemplo9">font-family: Relationship of Melodrame;</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">En <span>@font-face</span>:</p>
+                <p class="p_codigo" style="padding-left: 30px;">font-family: 'Relationship of Melodrame';</p>
+                <p class="p_codigo" style="padding-left: 30px;">src: url(fondos/relationship_of_melodrame/Relationship\
+                    of\ mélodrame.ttf);</p>
+                <hr
+                    style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border-color: rgb(131, 176, 141);">
+                <p class="p_codigo">En <span>p</span>:</p>
+                <p class="p_codigo" style="padding-left: 30px;">font-family: 'Relationship of Melodrame';</p>
+            </div>
+            <h2>Uso de texto en negrita</h2>
+            <p class="info">Se usa <i>@font-weight</i> para ajustar el grosor de nuestro texto, normalmente se usa el
+                valor <i>bold</i>.</p>
+            <p class="fuentes_ejemplo10">font-family: Relationship of Melodrame;</p>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">font-weight: bold;</p>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo9">
+            <div class="botones_titulo">
+                <h1 id="10">CSS Buttons</h1>
+                <p>Veremos cómo redondear botones, crear botones flotantes, ponerles sombra, crear grupos de botones y
+                    hacer botones animados.</p>
+            </div>
+            <h2 style="margin-top: 30px;">Colores y tamaño &emsp;&emsp;&emsp;&emsp;<span
+                    style="font-weight: 100; font-size: 16px; opacity: 70%; text-decoration: underline;">pincha el
+                    título &#11014;</span></h2>
+            <p class="info">Utilice la propiedad <i>background-color</i> para cambiar el color de fondo de un botón:</p>
+            <button class="botones_ejemplo1">Verde</button>
+            <button class="botones_ejemplo2">Azul</button>
+            <button class="botones_ejemplo3">Rojo</button>
+            <button class="botones_ejemplo4">Gris</button>
+            <button class="botones_ejemplo5">Negro</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">background-color: #04AA6D; <span style="opacity: 60%; text-shadow: none;">/* Green
+                        */</span></p>
+            </div>
+            <p class="info">Utilice la propiedad <i>font-size</i> para cambiar el tamaño de fuente de un botón:</p>
+            <button class="botones_ejemplo1" style="font-size: 12px;">12 píxeles</button>
+            <button class="botones_ejemplo2" style="font-size: 14px;">14 píxeles</button>
+            <button class="botones_ejemplo3" style="font-size: 16px;">16 píxeles</button>
+            <button class="botones_ejemplo4" style="font-size: 18px;">18 píxeles</button>
+            <button class="botones_ejemplo5" style="font-size: 20px;">20 píxeles</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">font-size: 10px;</p>
+            </div>
+            <h2>Botones redondeados</h2>
+            <p class="info">Utilice la propiedad <i>border-radius</i> para agregar esquinas redondeadas a un botón:</p>
+            <button class="botones_ejemplo1" style="border-radius: 4px; padding: 20px;">4px</button>
+            <button class="botones_ejemplo2" style="border-radius: 8px; padding: 20px;">8px</button>
+            <button class="botones_ejemplo3" style="border-radius: 16px; padding: 20px;">16px</button>
+            <button class="botones_ejemplo4" style="border-radius: 32px; padding: 20px;">32px</button>
+            <button class="botones_ejemplo5" style="border-radius: 50%; padding: 20px;">50%</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">border-radius: 50%;</p>
+            </div>
+            <h2>Bordes de botones de colores</h2>
+            <p class="info">Utilice la propiedad <i>border</i> para agregar un borde de color a un botón:</p>
+            <button class="botones_ejemplo1"
+                style="border: 2px solid #04AA6D; background-color: transparent; color: black;">Verde</button>
+            <button class="botones_ejemplo2"
+                style="border: 2px solid #008CBA; background-color: transparent; color: black;">Azul</button>
+            <button class="botones_ejemplo3"
+                style="border: 2px solid #f44336; background-color: transparent; color: black;">Rojo</button>
+            <button class="botones_ejemplo4"
+                style="border: 2px solid #e7e7e7; background-color: transparent;">Gris</button>
+            <button class="botones_ejemplo5"
+                style="border: 2px solid #555555; background-color: transparent; color: black;">Negro</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">border: 2px solid #04AA6D; <span style="opacity: 60%; text-shadow: none;">/* Green
+                        */</span></p>
+            </div>
+            <h2>Botones flotantes</h2>
+            <p class="info">Utilice el selector <i>:hover</i> para cambiar el estilo de un botón cuando mueve el mouse
+                sobre él:</p>
+            <p class="info"><b>Consejo:</b> utiliza la propiedad <i>transition-duration</i> para determinar la velocidad
+                del efecto "hover":</p>
+            <button class="botones_ejemplo6">Verde</button>
+            <button class="botones_ejemplo7">Azul</button>
+            <button class="botones_ejemplo8">Rojo</button>
+            <button class="botones_ejemplo9">Gris</button>
+            <button class="botones_ejemplo10">Negro</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">En el <span>botón</span>:</p>
+                <p class="p_codigo" style="padding-left: 30px;">transition-duration: 0.4s;</p>
+                <hr
+                    style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border-color: rgb(131, 176, 141);">
+                <p class="p_codigo">En el <span><i>hover</i></span>:</p>
+                <p class="p_codigo" style="padding-left: 30px;">background-color: #04AA6D; <span
+                        style="opacity: 60%; text-shadow: none;">/* Green */</span></p>
+                <p class="p_codigo" style="padding-left: 30px;">color: white;</p>
+            </div>
+            <h2>Botones de sombra</h2>
+            <p class="info">Utilice la propiedad <i>box-shadow</i> para agregar sombras a un botón:</p>
+            <button class="botones_ejemplo11">Sombra</button>
+            <button class="botones_ejemplo12">Sombra con <i>hover</i></button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;</p>
+            </div>
+            <h2>Botones deshabilitados</h2>
+            <p class="info">Utilice la propiedad <i>opacity</i> para agregar transparencia a un botón (crea una
+                apariencia "deshabilitada"):</p>
+            <p class="info"><b>Consejo:</b> también puedes agregar la propiedad <i>cursor</i> con un valor de "not
+                allowed", lo que mostrará una "señal de no estacionar" cuando pases el mouse sobre el botón: </p>
+            <button class="botones_ejemplo1" style="margin-right: 30px;">Botón normal</button>
+            <button class="botones_ejemplo1" style="opacity: 0.6; cursor: not-allowed;">Botón deshabilitado</button>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">opacity: 0.6;</p>
+                <p class="p_codigo">cursor: not-allowed;</p>
+            </div>
+            <h2>Grupos de botones con borde</h2>
+            <p class="info">Eliminar márgenes y agregarlos <i>float: left</i> a cada botón para crear un grupo de
+                botones, para ponerles bordes usamos <i>border</i>:</p>
+            <button class="botones_ejemplo13">Botón</button>
+            <button class="botones_ejemplo13">Botón</button>
+            <button class="botones_ejemplo13">Botón</button>
+            <button class="botones_ejemplo13">Botón</button>
+            <div class="codigo" style="clear: both;">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">float: left;</p>
+                <p class="p_codigo">margin: 0;</p>
+                <p class="p_codigo">border: 1px solid green;</p>
+            </div>
+            <h2>Grupos de botones verticales</h2>
+            <p class="info">Utilice <i>display: block</i> en lugar de <i>float: left</i> para agrupar los botones uno
+                debajo del otro, en lugar de uno al lado del otro:</p>
+            <button class="botones_ejemplo14">Botón</button>
+            <button class="botones_ejemplo14">Botón</button>
+            <button class="botones_ejemplo14">Botón</button>
+            <button class="botones_ejemplo14">Botón</button>
+            <div class="codigo" style="clear: both; margin-top: 20px;">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">display: block;</p>
+            </div>
+            <h2>Botón en la imagen</h2>
+            <div class="div_botonenimagen">
+                <img src="imagenes/tituloFuentes.jpg" alt="Imagen con botón">
+                <button class="botones_ejemplo15">Botón</button>
+            </div>
+            <h2>Botones animados</h2>
+            <p class="info">Añadir una flecha al pasar el cursor:</p>
+            <button class="botones_ejemplo16" style="vertical-align:middle"><span>Hover </span></button>
+            <p class="info">Añadir un efecto para simular que se presiona al hacer clic:</p>
+            <button class="botones_ejemplo17">Pínchame</button>
+        </div>
+        <div class="div_propiedades_cambiocolorfondo10">
+            <div class="columnas_titulo">
+                <h1 id="11">CSS Multiple Columns</h1>
+                <div class="p_columnas_titulo">
+                    <h3>MADRID, WEDNESDAY, NOVEMBER 5, 2024</h3>
+                    <hr>
+                    <p style="font-style: italic; font-size: 18px; text-align: center; width: 500px;">El diseño
+                        multicolumna permite definir fácilmente múltiples columnas de texto, tal como en los
+                        periódicos, de esta forma:</p>
+                    <div class="columnas_ejemplo1" style="border: none; gap: 10px; padding: 0; padding-top: 10px;">
+                        <p style="padding-left: 15px; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Quisquam provident quos esse quibusdam
+                            similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                            magnamdolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nostrum voluptate
+                            impedit odio, necessitatibus voluptas itaque id, porro molestiae excepturi officia rerum
+                            ipsam dignissimos magnam asperiores eius explicabo sapiente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h2>Crear múltiples columnas</h2>
+            <p class="info">La propiedad <i>column-count</i> especifica el número de columnas en que se debe dividir
+                un
+                elemento.</p>
+            <p class="info">El siguiente ejemplo dividirá el texto del elemento "div" en 3 columnas:</p>
+            <div class="columnas_ejemplo1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-count: 3;</p>
+            </div>
+            <h2>Especificar el espacio entre columnas</h2>
+            <p class="info">La propiedad <i>column-gap</i> especifica el espacio entre las columnas.</p>
+            <p class="info">El siguiente ejemplo especifica un espacio de 40 píxeles entre las columnas:</p>
+            <div class="columnas_ejemplo1" style="column-gap: 40px;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-gap: 40px;</p>
+            </div>
+            <h2>Reglas de columnas</h2>
+            <p class="info">La propiedad <i>column-rule-style</i> especifica el estilo de la regla entre columnas:
+            </p>
+            <div class="columnas_ejemplo1" style="column-gap: 40px; column-rule-style: solid;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-rule-style: solid;</p>
+            </div>
+            <p class="info">La propiedad <i>column-rule-width</i> especifica el ancho de la regla entre columnas:
+            </p>
+            <div class="columnas_ejemplo1" style="column-gap: 40px; column-rule-style: solid; column-rule-width: 1px;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-rule-width: 1px;</p>
+            </div>
+            <p class="info">La propiedad <i>column-rule-color</i> especifica el color de la regla entre columnas:
+            </p>
+            <div class="columnas_ejemplo1"
+                style="column-gap: 40px; column-rule-style: solid; column-rule-width: 1px; column-rule-color: gold;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-rule-color: gold;</p>
+            </div>
+            <p class="info">La propiedad <i>column-rule</i> es una propiedad abreviada para configurar todas las
+                propiedades column-rule-* anteriores.</p>
+            <p class="info">El siguiente ejemplo establece el ancho, el estilo y el color de la regla entre
+                columnas:
+            </p>
+            <div class="columnas_ejemplo1" style="column-gap: 40px; column-rule: 1px solid brown;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-rule: 1px solid brown;</p>
+            </div>
+            <h2>Especificar cuántas columnas debe abarcar un elemento</h2>
+            <p class="info">La propiedad <i>column-span</i> especifica cuántas columnas debe abarcar un elemento.
+            </p>
+            <p class="info">El siguiente ejemplo especifica que el elemento "h2" debe abarcar todas las columnas:
+            </p>
+            <div class="columnas_ejemplo1" style="column-gap: 40px; column-rule: 1px solid blueviolet;">
+                <h3 class="h3_ejemplo_columnas" style="column-span: all;">Lorem Ipsum Dolor Sit Amet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-span: all;</p>
+            </div>
+            <h2>Especificar el ancho de la columna</h2>
+            <p class="info">La propiedad <i>column-width</i> especifica un ancho sugerido y óptimo para las
+                columnas.
+            </p>
+            <p class="info">El siguiente ejemplo especifica que el ancho óptimo sugerido para las columnas debe ser
+                200
+                px:</p>
+            <div class="columnas_ejemplo2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam provident quos esse quibusdam
+                    similique nihil consequatur cum harum dolor. Excepturi ipsa ratione quia impedit, molestias
+                    magnam
+                    dolorem pariatur voluptate sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+                    nam
+                    laboriosam saepe totam sit, cum esse eum quaerat? Nemo amet necessitatibus voluptatibus facilis
+                    pariatur, eaque nulla maiores obcaecati consequuntur quis. Lorem, ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Consectetur, explicabo blanditiis! Eaque nihil maxime corrupti hic, doloremque
+                    nostrum voluptatibus consectetur perferendis minima architecto porro corporis, nesciunt pariatur
+                    magni nulla assumenda.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">column-width: 200px;</p>
+            </div>
+        </div>
+        <div class="div_propiedades_cambiocolorfondo11">
+            <div class="interfaces_titulo">
+                <h1 id="12">CSS User Interface</h1>
+                <p>En este capítulo aprenderá sobre las siguientes propiedades de la interfaz de usuario:</p>
+                <ul style="margin-top: 20px;">
+                    <li>resize</li>
+                    <li>outline-offset</li>
+                </ul>
+            </div>
+            <h2>Cambio de tamaño</h2>
+            <p class="info">La propiedad <i>resize</i> especifica si el usuario debe cambiar el tamaño de un
+                elemento (y
+                cómo).</p>
+            <p class="info">El siguiente ejemplo permite al usuario cambiar el tamaño únicamente de la altura de un
+                elemento "div":</p>
+            <div class="interfaces_ejemplo1">
+                <p style="padding-bottom: 10px;">Let the user resize only the width of this div element.</p>
+                <p>To resize: Click and drag the bottom right corner of this div element.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">resize: horizontal;</p>
+                <p class="p_codigo">overflow: auto;</p>
+            </div>
+            <p class="info">El siguiente ejemplo permite al usuario cambiar el tamaño únicamente de la altura de un
+                elemento "div":</p>
+            <div class="interfaces_ejemplo1" style="resize: vertical;">
+                <p style="padding-bottom: 10px;">Let the user resize only the width of this div element.</p>
+                <p>To resize: Click and drag the bottom right corner of this div element.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">resize: vertical;</p>
+                <p class="p_codigo">overflow: auto;</p>
+            </div>
+            <p class="info">El siguiente ejemplo permite al usuario cambiar el tamaño tanto de la altura como del
+                ancho de un elemento "div":</p>
+            <div class="interfaces_ejemplo1" style="resize: both;">
+                <p style="padding-bottom: 10px;">Let the user resize only the width of this div element.</p>
+                <p>To resize: Click and drag the bottom right corner of this div element.</p>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">resize: both;</p>
+                <p class="p_codigo">overflow: auto;</p>
+            </div>
+            <p class="info">En muchos navegadores, "textarea" se puede redimensionar de forma predeterminada. Aquí,
+                hemos utilizado la propiedad <i>resize</i> para deshabilitar la redimensionabilidad:</p>
+            <textarea class="interfaces_ejemplo2"
+                style="resize: none;">Este textarea no se puede redimensionar a causa del valor none del resize.</textarea>
+            <textarea
+                class="interfaces_ejemplo2">Este textarea sí que se puede redimensionar porque lo tiene implementado de forma predeterminada.</textarea>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">resize: both;</p>
+                <p class="p_codigo">overflow: auto;</p>
+            </div>
+        </div>
+
+        <div class="div_propiedades_cambiocolorfondo12">
+            <div class="box_sizing_titulo">
+                <h1 id="13">CSS Box Sizing</h1>
+                <p>La propiedad <i>box-sizing</i> nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.</p>
+            </div>
+            <h2>Sin la propiedad <i>box-sizing</i></h2>
+            <p class="info">De forma predeterminada, el ancho y la altura de un elemento se calculan de la siguiente
+                manera:</p>
+            <p class="info" style="padding-bottom: 5px;">ancho + relleno + borde = ancho real de un elemento</p>
+            <p class="info">alto + relleno + borde = alto real de un elemento</p>
+            <p class="info">Esto significa: cuando establece el ancho/alto de un elemento, el elemento a menudo aparece
+                más grande que lo establecido (porque el borde y el relleno del elemento se agregan al ancho/alto
+                especificado del elemento).</p>
+            <p class="info">La siguiente ilustración muestra dos elementos "div" con el mismo ancho y alto
+                especificados:</p>
+            <div style="display: flex; margin-bottom: 20px;">
+                <div class="box_sizing_ejemplo1">
+                    <p>width: 300px;</p>
+                    <p>height: 100px;</p>
+                    <p>border: 1px solid blue;</p>
+                </div>
+                <div class="box_sizing_ejemplo1" style="padding: 30px; border: 2px solid red;">
+                    <p>width: 300px;</p>
+                    <p>height: 100px;</p>
+                    <p>border: 1px solid red;</p>
+                    <p>padding: 30px;</p>
+                </div>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">resize: both;</p>
+                <p class="p_codigo">overflow: auto;</p>
+            </div>
+            <p class="info">Los dos elementos "div" anteriores terminan con tamaños diferentes en el resultado (porque el segundo "div" tiene un relleno especificado).</p>
+            <p class="info">La propiedad <i>box-sizing</i> resuelve este problema.</p>
+            <h2>Con la propiedad <i>box-sizing</i></h2>
+            <p class="info">La propiedad <i>box-sizing</i> nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.</p>
+            <p class="info">Si configuramos <i>box-sizing: border-box;</i> en un elemento, el relleno y el borde se incluyen en el ancho y la altura:</p>
+            <div style="display: flex; margin-bottom: 20px;">
+                <div class="box_sizing_ejemplo1" style="height: 150px; box-sizing: border-box;">
+                    <p>width: 300px;</p>
+                    <p>height: 150px;</p>
+                    <p>border: 1px solid blue;</p>
+                    <p>box-sizing: border-box;</p>
+                </div>
+                <div class="box_sizing_ejemplo1" style="height: 150px; padding: 30px; border: 2px solid red; box-sizing: border-box;">
+                    <p>width: 300px;</p>
+                    <p>height: 150px;</p>
+                    <p>border: 1px solid red;</p>
+                    <p>padding: 30px;</p>
+                    <p>box-sizing: border-box;</p>
+                </div>
+            </div>
+            <div class="codigo">
+                <p class="p_titulo_codigo"><b>CÓDIGO:</b></p>
+                <p class="p_codigo">box-sizing: border-box;</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
